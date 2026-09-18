@@ -1,0 +1,21 @@
+============================================================
+LOGISTIC REGRESSION CLASSIFICATION REPORT
+============================================================
+
+Target: HighYield (Threshold Yield >= 1.03 t/ha)
+Features: Crop_Year, Area, Annual_Rainfall, Fertilizer, Pesticide
+
+Metrics on Validation Split:
+  - Accuracy: 0.5663
+  - ROC AUC:  0.5893
+  - Log Loss: 0.6795
+
+Classification Report:
+                precision    recall  f1-score   support
+
+Standard Yield       0.56      0.66      0.60      1976
+    High Yield       0.58      0.47      0.52      1962
+
+      accuracy                           0.57      3938
+     macro avg       0.57      0.57      0.56      3938
+  weighted avg       0.57      0.57      0.56      3938

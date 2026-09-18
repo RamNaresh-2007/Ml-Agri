@@ -1,0 +1,48 @@
+{
+  "optimal_k": 3,
+  "inertias": [
+    6605.429778350889,
+    4368.451721246843,
+    3112.739111841679,
+    2033.4100765904993,
+    1641.7320952326634,
+    1351.8253083370773
+  ],
+  "silhouette_scores": [
+    0.8462945071821194,
+    0.8571172356570115,
+    0.5880900551949949,
+    0.6007877123075204,
+    0.5917076145268912,
+    0.4823795581003778
+  ],
+  "personas": {
+    "cluster_1": {
+      "name": "High-Yield Intensive Agro-Zone",
+      "sample_count": 19124,
+      "proportion_pct": 97.13,
+      "mean_yield": 5.73,
+      "mean_rainfall": 1443.3,
+      "mean_fertilizer": 13262337.1,
+      "mean_area": 100251.3
+    },
+    "cluster_2": {
+      "name": "Rainfed Balanced Agro-Zone",
+      "sample_count": 407,
+      "proportion_pct": 2.07,
+      "mean_yield": 3.78,
+      "mean_rainfall": 1020.3,
+      "mean_fertilizer": 530677514.7,
+      "mean_area": 3904716.4
+    },
+    "cluster_3": {
+      "name": "Arid / Moisture-Deficit Agro-Zone",
+      "sample_count": 158,
+      "proportion_pct": 0.8,
+      "mean_yield": 9260.45,
+      "mean_rainfall": 1838.3,
+      "mean_fertilizer": 31363512.6,
+      "mean_area": 228791.3
+    }
+  }
+}

@@ -1,0 +1,22 @@
+=====================================================
+AGRO-ECOLOGICAL UNSUPERVISED CLUSTERING REPORT
+=====================================================
+Optimal Number of Clusters (K): 3
+Silhouette Score (K=3): 0.8571
+
+Cluster Personas:
+1. High-Yield Intensive Agro-Zone:
+   - Samples: 19124 (97.13%)
+   - Mean Yield: 5.73 t/ha
+   - Mean Rainfall: 1443.3 mm
+
+2. Rainfed Balanced Agro-Zone:
+   - Samples: 407 (2.07%)
+   - Mean Yield: 3.78 t/ha
+   - Mean Rainfall: 1020.3 mm
+
+3. Arid / Moisture-Deficit Agro-Zone:
+   - Samples: 158 (0.8%)
+   - Mean Yield: 9260.45 t/ha
+   - Mean Rainfall: 1838.3 mm
+=====================================================

@@ -1,0 +1,18 @@
+============================================================
+DBSCAN AGRO-ECOLOGICAL CLUSTERING REPORT
+============================================================
+
+Parameters:
+  - eps: 1.0
+  - min_samples: 10
+  - Subsample Size: 5000
+
+Results:
+  - Number of Clusters Formed: 2
+  - Noise Points (Outliers): 80 (1.60%)
+  - Core Features Used: Crop_Year, Area, Annual_Rainfall, Fertilizer, Pesticide
+
+Cluster Distribution:
+  Cluster -1:    80 records (1.6%)
+  Cluster  0:  4909 records (98.2%)
+  Cluster  1:    11 records (0.2%)

@@ -1,0 +1,78 @@
+{
+  "total_records": 19689,
+  "features": [
+    "Crop",
+    "Crop_Year",
+    "Season",
+    "State",
+    "Area",
+    "Annual_Rainfall",
+    "Fertilizer",
+    "Pesticide",
+    "Yield"
+  ],
+  "numeric_features": [
+    "Area",
+    "Annual_Rainfall",
+    "Fertilizer",
+    "Pesticide",
+    "Yield"
+  ],
+  "top_crops": [
+    {
+      "Crop": "Coconut",
+      "Yield": 8652.000198744186
+    },
+    {
+      "Crop": "Sugarcane",
+      "Yield": 51.72743941127438
+    },
+    {
+      "Crop": "Banana",
+      "Yield": 26.851127854040815
+    },
+    {
+      "Crop": "Tapioca",
+      "Yield": 16.66730148311443
+    },
+    {
+      "Crop": "Potato",
+      "Yield": 13.331717759538218
+    },
+    {
+      "Crop": "Onion",
+      "Yield": 13.247524628323788
+    },
+    {
+      "Crop": "Sweet potato",
+      "Yield": 9.240788497794872
+    },
+    {
+      "Crop": "Jute",
+      "Yield": 7.555392696430939
+    },
+    {
+      "Crop": "Ginger",
+      "Yield": 6.442201573232198
+    },
+    {
+      "Crop": "Mesta",
+      "Yield": 5.389203528904762
+    }
+  ],
+  "generated_plots": [
+    "14_correlation_heatmap.png",
+    "eda_seasonal_yield.png",
+    "eda_crops_distribution.png",
+    "01_distribution_Area.png",
+    "01_distribution_Annual_Rainfall.png",
+    "01_distribution_Fertilizer.png",
+    "01_distribution_Pesticide.png",
+    "01_distribution_Yield.png",
+    "02_boxplot_Area.png",
+    "02_boxplot_Annual_Rainfall.png",
+    "02_boxplot_Fertilizer.png",
+    "02_boxplot_Pesticide.png",
+    "02_boxplot_Yield.png"
+  ]
+}

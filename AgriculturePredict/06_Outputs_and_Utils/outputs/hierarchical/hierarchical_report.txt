@@ -1,0 +1,24 @@
+============================================================
+HIERARCHICAL AGGLOMERATIVE CLUSTERING REPORT
+============================================================
+
+1. Linkage Cophenetic Correlation:
+   - Ward        : 0.5807
+   - Complete    : 0.8648
+   - Average     : 0.9322
+   - Single      : 0.8993
+
+2. Optimal Cluster Cut: K = 2
+   - Silhouette Scores by K:
+       K=2: 0.8012
+       K=3: 0.3088
+       K=4: 0.3120
+       K=5: 0.3180
+       K=6: 0.3496
+       K=7: 0.2901
+
+3. Cluster Feature Means:
+                        Crop_Year          Area  Annual_Rainfall    Fertilizer     Pesticide
+Hierarchical_Cluster                                                                        
+0                     2009.454082  1.029609e+05      1452.859526  1.412606e+07  2.688255e+04
+1                     2009.800000  4.108976e+06       947.260000  5.660007e+08  1.183469e+06

@@ -1,0 +1,44 @@
+{
+  "champion_model": "Random Forest",
+  "r2_score": 0.9807,
+  "rmse": 124.445,
+  "mae": 9.5319,
+  "dataset": {
+    "total_samples": 19689,
+    "train_samples": 15751,
+    "test_samples": 3938,
+    "crops_count": 55,
+    "states_count": 30,
+    "seasons_count": 6
+  },
+  "benchmarks": [
+    {
+      "Model": "Linear Regression (OLS)",
+      "R2_Score": 0.8105,
+      "RMSE": 389.6808,
+      "MAE": 63.8846,
+      "Training_Time_Sec": 0.08
+    },
+    {
+      "Model": "Ridge Regression",
+      "R2_Score": 0.8104,
+      "RMSE": 389.7141,
+      "MAE": 63.9466,
+      "Training_Time_Sec": 0.5
+    },
+    {
+      "Model": "Decision Tree",
+      "R2_Score": 0.9661,
+      "RMSE": 164.8431,
+      "MAE": 11.7024,
+      "Training_Time_Sec": 0.23
+    },
+    {
+      "Model": "Random Forest",
+      "R2_Score": 0.9807,
+      "RMSE": 124.445,
+      "MAE": 9.5319,
+      "Training_Time_Sec": 1.87
+    }
+  ]
+}

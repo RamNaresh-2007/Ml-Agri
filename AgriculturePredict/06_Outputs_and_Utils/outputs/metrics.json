@@ -1,0 +1,274 @@
+{
+  "model_name": "Random Forest Regressor",
+  "algorithm": "RandomForestRegressor(n_estimators=100, max_depth=22)",
+  "trained_at": "2026-09-11T15:01:33.115104",
+  "training_time_seconds": 20.27,
+  "metrics": {
+    "r2_score": 0.964,
+    "train_r2_score": 0.9893,
+    "rmse": 169.8965,
+    "mae": 12.0825,
+    "mse": 28864.8208,
+    "mape_percent": 89.22
+  },
+  "dataset_summary": {
+    "total_samples": 19689,
+    "train_samples": 15751,
+    "test_samples": 3938,
+    "features_count": 96,
+    "crops_count": 55,
+    "states_count": 30,
+    "seasons_count": 6
+  },
+  "categories": {
+    "crops": [
+      "Arecanut",
+      "Arhar/Tur",
+      "Bajra",
+      "Banana",
+      "Barley",
+      "Black pepper",
+      "Cardamom",
+      "Cashewnut",
+      "Castor seed",
+      "Coconut",
+      "Coriander",
+      "Cotton(lint)",
+      "Cowpea(Lobia)",
+      "Dry chillies",
+      "Garlic",
+      "Ginger",
+      "Gram",
+      "Groundnut",
+      "Guar seed",
+      "Horse-gram",
+      "Jowar",
+      "Jute",
+      "Khesari",
+      "Linseed",
+      "Maize",
+      "Masoor",
+      "Mesta",
+      "Moong(Green Gram)",
+      "Moth",
+      "Niger seed",
+      "Oilseeds total",
+      "Onion",
+      "Other  Rabi pulses",
+      "Other Cereals",
+      "Other Kharif pulses",
+      "Other Summer Pulses",
+      "Peas & beans (Pulses)",
+      "Potato",
+      "Ragi",
+      "Rapeseed &Mustard",
+      "Rice",
+      "Safflower",
+      "Sannhamp",
+      "Sesamum",
+      "Small millets",
+      "Soyabean",
+      "Sugarcane",
+      "Sunflower",
+      "Sweet potato",
+      "Tapioca",
+      "Tobacco",
+      "Turmeric",
+      "Urad",
+      "Wheat",
+      "other oilseeds"
+    ],
+    "states": [
+      "Andhra Pradesh",
+      "Arunachal Pradesh",
+      "Assam",
+      "Bihar",
+      "Chhattisgarh",
+      "Delhi",
+      "Goa",
+      "Gujarat",
+      "Haryana",
+      "Himachal Pradesh",
+      "Jammu and Kashmir",
+      "Jharkhand",
+      "Karnataka",
+      "Kerala",
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Manipur",
+      "Meghalaya",
+      "Mizoram",
+      "Nagaland",
+      "Odisha",
+      "Puducherry",
+      "Punjab",
+      "Sikkim",
+      "Tamil Nadu",
+      "Telangana",
+      "Tripura",
+      "Uttar Pradesh",
+      "Uttarakhand",
+      "West Bengal"
+    ],
+    "seasons": [
+      "Autumn",
+      "Kharif",
+      "Rabi",
+      "Summer",
+      "Whole Year",
+      "Winter"
+    ]
+  },
+  "top_feature_importances": [
+    {
+      "feature": "Crop_Coconut",
+      "raw_feature": "cat__Crop_Coconut",
+      "importance": 0.8507257685592006,
+      "percentage": 85.07257685592006
+    },
+    {
+      "feature": "Annual_Rainfall",
+      "raw_feature": "num__Annual_Rainfall",
+      "importance": 0.03215346338039272,
+      "percentage": 3.215346338039272
+    },
+    {
+      "feature": "Area",
+      "raw_feature": "num__Area",
+      "importance": 0.02504616141316216,
+      "percentage": 2.504616141316216
+    },
+    {
+      "feature": "State_Karnataka",
+      "raw_feature": "cat__State_Karnataka",
+      "importance": 0.019684708457811066,
+      "percentage": 1.9684708457811066
+    },
+    {
+      "feature": "Pesticide",
+      "raw_feature": "num__Pesticide",
+      "importance": 0.01810542323536286,
+      "percentage": 1.810542323536286
+    },
+    {
+      "feature": "Fertilizer",
+      "raw_feature": "num__Fertilizer",
+      "importance": 0.01467573074263603,
+      "percentage": 1.467573074263603
+    },
+    {
+      "feature": "State_West Bengal",
+      "raw_feature": "cat__State_West Bengal",
+      "importance": 0.011883589897917813,
+      "percentage": 1.1883589897917812
+    },
+    {
+      "feature": "State_Assam",
+      "raw_feature": "cat__State_Assam",
+      "importance": 0.011155934179637556,
+      "percentage": 1.1155934179637557
+    },
+    {
+      "feature": "Crop_Year",
+      "raw_feature": "num__Crop_Year",
+      "importance": 0.006314327425744407,
+      "percentage": 0.6314327425744407
+    },
+    {
+      "feature": "State_Chhattisgarh",
+      "raw_feature": "cat__State_Chhattisgarh",
+      "importance": 0.003740378417150963,
+      "percentage": 0.3740378417150963
+    },
+    {
+      "feature": "State_Puducherry",
+      "raw_feature": "cat__State_Puducherry",
+      "importance": 0.0023488993899039136,
+      "percentage": 0.23488993899039137
+    },
+    {
+      "feature": "State_Andhra Pradesh",
+      "raw_feature": "cat__State_Andhra Pradesh",
+      "importance": 0.002005488487601567,
+      "percentage": 0.2005488487601567
+    },
+    {
+      "feature": "State_Tamil Nadu",
+      "raw_feature": "cat__State_Tamil Nadu",
+      "importance": 0.0015542007904638148,
+      "percentage": 0.15542007904638147
+    },
+    {
+      "feature": "State_Goa",
+      "raw_feature": "cat__State_Goa",
+      "importance": 0.0004322061383357247,
+      "percentage": 0.043220613833572466
+    },
+    {
+      "feature": "Crop_Sugarcane",
+      "raw_feature": "cat__Crop_Sugarcane",
+      "importance": 9.448659836926737e-05,
+      "percentage": 0.009448659836926738
+    },
+    {
+      "feature": "State_Kerala",
+      "raw_feature": "cat__State_Kerala",
+      "importance": 1.3773209449505723e-05,
+      "percentage": 0.0013773209449505722
+    },
+    {
+      "feature": "Crop_Maize",
+      "raw_feature": "cat__Crop_Maize",
+      "importance": 1.0569594781452288e-05,
+      "percentage": 0.0010569594781452288
+    },
+    {
+      "feature": "Crop_Banana",
+      "raw_feature": "cat__Crop_Banana",
+      "importance": 9.14957669026817e-06,
+      "percentage": 0.0009149576690268169
+    },
+    {
+      "feature": "State_Manipur",
+      "raw_feature": "cat__State_Manipur",
+      "importance": 6.389773814648424e-06,
+      "percentage": 0.0006389773814648425
+    },
+    {
+      "feature": "Crop_Potato",
+      "raw_feature": "cat__Crop_Potato",
+      "importance": 5.86282043345583e-06,
+      "percentage": 0.000586282043345583
+    },
+    {
+      "feature": "State_Delhi",
+      "raw_feature": "cat__State_Delhi",
+      "importance": 5.140348417949104e-06,
+      "percentage": 0.0005140348417949104
+    },
+    {
+      "feature": "Crop_Onion",
+      "raw_feature": "cat__Crop_Onion",
+      "importance": 4.053328256726339e-06,
+      "percentage": 0.0004053328256726339
+    },
+    {
+      "feature": "Crop_Tapioca",
+      "raw_feature": "cat__Crop_Tapioca",
+      "importance": 2.928672411464878e-06,
+      "percentage": 0.0002928672411464878
+    },
+    {
+      "feature": "State_Gujarat",
+      "raw_feature": "cat__State_Gujarat",
+      "importance": 2.097872511869765e-06,
+      "percentage": 0.0002097872511869765
+    },
+    {
+      "feature": "State_Maharashtra",
+      "raw_feature": "cat__State_Maharashtra",
+      "importance": 2.068584820883453e-06,
+      "percentage": 0.00020685848208834527
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriYield AI &bull; Precision Agricultural ML Intelligence Suite</title>
+    <!-- Google Fonts & Phosphor Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <!-- Zero-flicker theme loader -->
+    <script>
+        (function() {
+            try {
+                const savedTheme = localStorage.getItem('agri_theme') || 'obsidian-emerald';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } catch (e) {}
+        })();
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="ph-fill ph-plant logo-icon"></i>
+                <h2>AgriYield AI</h2>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li class="active" data-target="dashboard-view"><a href="#"><i class="ph ph-squares-four"></i> Dashboard</a></li>
+                    <li data-target="predictor-view"><a href="#"><i class="ph ph-brain"></i> AI Predictor & Advisor</a></li>
+                    <li data-target="records-view"><a href="#"><i class="ph ph-table"></i> Crop Database</a></li>
+                    <li data-target="reports-view"><a href="#"><i class="ph ph-chart-bar"></i> Visual Reports</a></li>
+                </ul>
+            </nav>
+
+            <!-- Multi-Theme Switcher -->
+            <div class="theme-switcher-section">
+                <div class="theme-switcher-header">
+                    <span><i class="ph-bold ph-palette"></i> UI Themes</span>
+                    <button id="quick-theme-toggle" class="theme-quick-btn" title="Toggle Theme" style="background:none; border:none; color:var(--text-secondary); cursor:pointer;">
+                        <i class="ph-bold ph-sun" id="theme-mode-icon"></i>
+                    </button>
+                </div>
+                <div class="theme-swatches-grid">
+                    <button class="theme-swatch-btn" data-theme="midnight-cyber" title="Midnight Cyber (OLED Neon)">
+                        <span class="swatch-color" style="background: linear-gradient(135deg, #8b5cf6, #06b6d4);"></span>
+                        <span class="swatch-label">Midnight</span>
+                    </button>
+                    <button class="theme-swatch-btn active" data-theme="obsidian-emerald" title="Obsidian Emerald (Matrix Agri-Tech)">
+                        <span class="swatch-color" style="background: linear-gradient(135deg, #10b981, #06b6d4);"></span>
+                        <span class="swatch-label">Emerald</span>
+                    </button>
+                    <button class="theme-swatch-btn" data-theme="sunset-nebula" title="Sunset Nebula (Cosmic Rose)">
+                        <span class="swatch-color" style="background: linear-gradient(135deg, #f43f5e, #8b5cf6);"></span>
+                        <span class="swatch-label">Sunset</span>
+                    </button>
+                    <button class="theme-swatch-btn" data-theme="solar-flare" title="Solar Flare (Harvest Amber Gold)">
+                        <span class="swatch-color" style="background: linear-gradient(135deg, #f59e0b, #ef4444);"></span>
+                        <span class="swatch-label">Solar</span>
+                    </button>
+                    <button class="theme-swatch-btn" data-theme="nordic-frost" title="Nordic Frost (Clean Light)">
+                        <span class="swatch-color" style="background: linear-gradient(135deg, #2563eb, #0ea5e9);"></span>
+                        <span class="swatch-label">Frost</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- User Session Pill -->
+            <div class="sidebar-user-section">
+                <div class="user-pill">
+                    <div class="user-avatar">
+                        <i class="ph-bold ph-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Agronomist</span>
+                        <span class="user-role">Research Suite</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- VIEW 1: DASHBOARD OVERVIEW -->
+            <div id="dashboard-view" class="view-section active">
+                <header>
+                    <h1>Agricultural Intelligence Overview</h1>
+                    <p>Monitor harvest yield trends, regional climatic inputs, and agro-ecological patterns</p>
+                </header>
+
+                <!-- KPI Cards -->
+                <section class="kpi-grid">
+                    <div class="kpi-card">
+                        <i class="ph ph-database kpi-icon"></i>
+                        <h3 class="kpi-title">Total Records</h3>
+                        <p class="kpi-value" id="kpi-total-records">...</p>
+                    </div>
+                    <div class="kpi-card">
+                        <i class="ph ph-chart-line-up kpi-icon"></i>
+                        <h3 class="kpi-title">Mean Yield</h3>
+                        <p class="kpi-value" id="kpi-avg-yield">...</p>
+                    </div>
+                    <div class="kpi-card">
+                        <i class="ph ph-globe kpi-icon"></i>
+                        <h3 class="kpi-title">Cultivated Area</h3>
+                        <p class="kpi-value" id="kpi-total-area">...</p>
+                    </div>
+                    <div class="kpi-card">
+                        <i class="ph ph-cloud-rain kpi-icon"></i>
+                        <h3 class="kpi-title">Mean Rainfall</h3>
+                        <p class="kpi-value" id="kpi-avg-rainfall">...</p>
+                    </div>
+                    <div class="kpi-card">
+                        <i class="ph ph-check-circle kpi-icon"></i>
+                        <h3 class="kpi-title">Data Quality</h3>
+                        <p class="kpi-value" id="kpi-data-quality">...</p>
+                    </div>
+                </section>
+
+                <!-- Charts Section -->
+                <section class="charts-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Yield Spread Distribution (Histogram)</h3>
+                        </div>
+                        <canvas id="yieldHistChart" height="130"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Seasonal Area Share</h3>
+                        </div>
+                        <canvas id="seasonPieChart" height="130"></canvas>
+                    </div>
+                    <div class="chart-card full-width">
+                        <div class="chart-header">
+                            <h3>Top 10 High-Yielding Crops (Mean Productivity)</h3>
+                        </div>
+                        <canvas id="topCropsChart" height="90"></canvas>
+                    </div>
+                </section>
+            </div>
+
+            <!-- VIEW 2: AI PREDICTOR & ADVISOR -->
+            <div id="predictor-view" class="view-section">
+                <header>
+                    <h1>AI Yield Predictor & Agronomic Advisor</h1>
+                    <p>Simulate field conditions, vary input dosages, and receive ML-guided yield forecasts</p>
+                </header>
+
+                <div class="predictor-layout">
+                    <!-- Simulation Form -->
+                    <div class="chart-card">
+                        <h3 style="margin-bottom: 1.25rem;">Field Parameters & Agronomic Inputs</h3>
+                        <form id="prediction-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="input-crop">Crop Category</label>
+                                    <select id="input-crop" required></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-state">State / Territory</label>
+                                    <select id="input-state" required></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-season">Cropping Season</label>
+                                    <select id="input-season" required></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-year">Crop Year</label>
+                                    <input type="number" id="input-year" value="2024" min="1997" max="2030">
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-area">Cultivated Area (ha)</label>
+                                    <input type="number" id="input-area" value="2500" min="1" step="any">
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-rainfall">Annual Rainfall (mm)</label>
+                                    <input type="number" id="input-rainfall" value="1250" min="50" step="any">
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-fertilizer">Fertilizer (kg)</label>
+                                    <input type="number" id="input-fertilizer" value="120000" min="0" step="any">
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-pesticide">Pesticide (kg)</label>
+                                    <input type="number" id="input-pesticide" value="1500" min="0" step="any">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary" id="predict-btn">
+                                <i class="ph-bold ph-lightning"></i> Calculate Expected Yield
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Prediction Result Card -->
+                    <div class="prediction-result-card">
+                        <div class="result-hero">
+                            <span class="result-label">Expected Crop Yield</span>
+                            <div class="result-val" id="res-yield">--.--</div>
+                            <span class="result-sub" id="res-total-prod">Estimated Total Production: -- tonnes</span>
+                        </div>
+
+                        <div class="persona-badge-box">
+                            <i class="ph-fill ph-map-pin" style="font-size: 1.4rem; color: var(--accent-primary);"></i>
+                            <div>
+                                <strong id="res-persona-name" style="font-size: 0.95rem;">Agro-Zone Archetype</strong>
+                                <p style="font-size: 0.78rem; color: var(--text-muted);">Unsupervised clustering classification</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 style="margin-bottom: 0.75rem; font-size: 0.95rem;"><i class="ph ph-lightbulb"></i> Actionable Agronomic Coaching</h4>
+                            <ul class="tips-list" id="res-tips-list">
+                                <li>Run a simulation to generate AI-driven agronomic coaching recommendations.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 style="margin-bottom: 0.75rem; font-size: 0.95rem;"><i class="ph ph-trend-up"></i> Rainfall Sensitivity Curve</h4>
+                            <canvas id="sensitivityChart" height="110"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 3: CROP DATABASE EXPLORER -->
+            <div id="records-view" class="view-section">
+                <header>
+                    <h1>Agricultural Dataset Explorer</h1>
+                    <p>Inspect, filter, and search across historical crop observations</p>
+                </header>
+
+                <div class="table-controls">
+                    <input type="text" id="record-search" class="search-input" placeholder="Search by crop, state, or season...">
+                    <div style="color: var(--text-secondary); font-size: 0.85rem;" id="table-record-count">Loading records...</div>
+                </div>
+
+                <div class="data-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Crop</th>
+                                <th>State</th>
+                                <th>Season</th>
+                                <th>Year</th>
+                                <th>Area (ha)</th>
+                                <th>Rainfall (mm)</th>
+                                <th>Fertilizer (kg)</th>
+                                <th>Yield (t/ha)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records-table-body">
+                            <tr><td colspan="8" style="text-align: center;">Loading dataset...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button id="prev-page-btn" disabled><i class="ph-bold ph-caret-left"></i> Previous</button>
+                    <span id="page-indicator" style="font-size: 0.85rem; color: var(--text-secondary);">Page 1 of 1</span>
+                    <button id="next-page-btn">Next <i class="ph-bold ph-caret-right"></i></button>
+                </div>
+            </div>
+
+            <!-- VIEW 4: VISUAL REPORTS GALLERY -->
+            <div id="reports-view" class="view-section">
+                <header>
+                    <h1>Visual Reports & EDA Gallery</h1>
+                    <p>Explore high-resolution charts, correlation matrices, and model diagnostic plots</p>
+                </header>
+
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Populated dynamically via API -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Image Enlarge Modal -->
+    <div id="image-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; padding: 2rem;">
+        <div style="position: relative; max-width: 90vw; max-height: 90vh;">
+            <button id="close-modal-btn" style="position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer;">&times;</button>
+            <img id="modal-img" src="" style="max-width: 100%; max-height: 85vh; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
+        </div>
+    </div>
+
+    <!-- Main JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
