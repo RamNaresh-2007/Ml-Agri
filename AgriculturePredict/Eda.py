@@ -41,25 +41,32 @@ PLOT_DIR = os.path.join(BASE_DIR, "plots")
 os.makedirs(PLOT_DIR, exist_ok=True)
 sns.set_style("whitegrid")
 
+print("\n" + "=" * 60, flush=True)
+print("Generating Exploratory Plots...", flush=True)
+print("=" * 60, flush=True)
+
 # 1. Distribution of Yield
+print("[1/6] Plotting Crop Yield Distribution...", flush=True)
 plt.figure(figsize=(8, 5))
 sns.histplot(df["Yield"], kde=True, color="forestgreen", bins=40)
 plt.title("Yield Distribution (log-normal profile)", fontsize=14, fontweight="bold")
 plt.xlabel("Yield (t/ha)")
 plt.ylabel("Frequency")
 plt.tight_layout()
-plt.savefig(os.path.join(PLOT_DIR, "Yield_Distribution.png"), dpi=300)
+plt.savefig(os.path.join(PLOT_DIR, "Yield_Distribution.png"), dpi=150)
 plt.close()
 
 # 2. BoxPlot of Yield
+print("[2/6] Plotting Crop Yield Boxplot...", flush=True)
 plt.figure(figsize=(7, 4))
 sns.boxplot(x=df["Yield"], color="lightgreen")
 plt.title("BoxPlot of Crop Yield", fontsize=14, fontweight="bold")
 plt.tight_layout()
-plt.savefig(os.path.join(PLOT_DIR, "BoxPlot_Yield.png"), dpi=300)
+plt.savefig(os.path.join(PLOT_DIR, "BoxPlot_Yield.png"), dpi=150)
 plt.close()
 
 # 3. Numeric Columns Distributions & Boxplots
+print("[3/6] Plotting Outlier Boxplots for all numeric features...", flush=True)
 numeric_cols = ["Area", "Annual_Rainfall", "Fertilizer", "Pesticide", "Yield"]
 for col in numeric_cols:
     if col in df.columns:
@@ -67,19 +74,21 @@ for col in numeric_cols:
         sns.boxplot(x=df[col], color="skyblue")
         plt.title(f"BoxPlot: {col}", fontsize=13, fontweight="bold")
         plt.tight_layout()
-        plt.savefig(os.path.join(PLOT_DIR, f"BoxPlot_{col}.png"), dpi=300)
+        plt.savefig(os.path.join(PLOT_DIR, f"BoxPlot_{col}.png"), dpi=150)
         plt.close()
 
 # 4. Correlation Heatmap
+print("[4/6] Plotting Correlation Heatmap...", flush=True)
 plt.figure(figsize=(8, 6))
 corr = df[numeric_cols].corr()
 sns.heatmap(corr, annot=True, fmt=".2f", cmap="YlGnBu", cbar=True)
 plt.title("Correlation Heatmap of Agricultural Features", fontsize=14, fontweight="bold")
 plt.tight_layout()
-plt.savefig(os.path.join(PLOT_DIR, "Correlation_Heatmap.png"), dpi=300)
+plt.savefig(os.path.join(PLOT_DIR, "Correlation_Heatmap.png"), dpi=150)
 plt.close()
 
 # 5. Scatter Plot: Rainfall vs Yield
+print("[5/6] Plotting Rainfall vs Yield Scatter...", flush=True)
 if "Annual_Rainfall" in df.columns and "Yield" in df.columns:
     plt.figure(figsize=(8, 5))
     sns.scatterplot(x=df["Annual_Rainfall"], y=df["Yield"], alpha=0.4, color="teal")
@@ -87,17 +96,19 @@ if "Annual_Rainfall" in df.columns and "Yield" in df.columns:
     plt.xlabel("Annual Rainfall (mm)")
     plt.ylabel("Yield (t/ha)")
     plt.tight_layout()
-    plt.savefig(os.path.join(PLOT_DIR, "Scatter_Rainfall_Yield.png"), dpi=300)
+    plt.savefig(os.path.join(PLOT_DIR, "Scatter_Rainfall_Yield.png"), dpi=150)
     plt.close()
 
 # 6. Season vs Yield BoxPlot
+print("[6/6] Plotting Season vs Yield Boxplot...", flush=True)
 if "Season" in df.columns and "Yield" in df.columns:
     plt.figure(figsize=(9, 5))
-    sns.boxplot(x="Season", y="Yield", data=df, palette="Set2")
+    sns.boxplot(x="Season", y="Yield", data=df, hue="Season", palette="Set2", legend=False)
     plt.title("Yield Distribution Across Seasons", fontsize=14, fontweight="bold")
     plt.xticks(rotation=30)
     plt.tight_layout()
-    plt.savefig(os.path.join(PLOT_DIR, "Season_vs_Yield_BoxPlot.png"), dpi=300)
+    plt.savefig(os.path.join(PLOT_DIR, "Season_vs_Yield_BoxPlot.png"), dpi=150)
     plt.close()
 
-print(f"\n[OK] EDA completed successfully! Plots saved to {PLOT_DIR}")
+print(f"\n[OK] EDA completed successfully! All plots saved to: {PLOT_DIR}", flush=True)
+

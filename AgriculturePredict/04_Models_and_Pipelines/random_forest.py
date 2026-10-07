@@ -76,7 +76,7 @@ print(feat_df.head(10).to_string(index=False))
 
 # Save
 feat_df.to_csv(os.path.join(OUT_DIR, "random_forest_feature_importances.csv"), index=False)
-joblib.dump(rf_pipe, os.path.join(OUT_DIR, "random_forest.joblib"))
+joblib.dump(rf_pipe, os.path.join(OUT_DIR, "random_forest.joblib"), compress=3)
 # Also save as primary model.joblib in regression outputs and root models
-joblib.dump(rf_pipe, os.path.join(OUT_DIR, "model.joblib"))
+joblib.dump(rf_pipe, os.path.join(OUT_DIR, "model.joblib"), compress=3)
 print(f"Models and feature importances saved to {OUT_DIR}")

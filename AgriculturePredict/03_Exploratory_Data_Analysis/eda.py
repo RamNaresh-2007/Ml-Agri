@@ -1,8 +1,11 @@
 import os
 import sys
+import shutil
 import json
 import pandas as pd
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -16,6 +19,13 @@ UTILS_OUT_DIR = os.path.join(PROJECT_DIR, "06_Outputs_and_Utils", "outputs")
 os.makedirs(PLOTS_DIR, exist_ok=True)
 os.makedirs(EDA_OUT_DIR, exist_ok=True)
 os.makedirs(UTILS_OUT_DIR, exist_ok=True)
+
+def save_plot_dual(fig, filename):
+    """Save plot once at optimal DPI and copy to duplicate directory to halve render time."""
+    p1 = os.path.join(PLOTS_DIR, filename)
+    p2 = os.path.join(EDA_OUT_DIR, filename)
+    fig.savefig(p1, dpi=120)
+    shutil.copyfile(p1, p2)
 
 if not os.path.exists(DATA_PATH):
     DATA_PATH = os.path.join(PROJECT_DIR, "01_Datasets", "crop_yield.csv")
@@ -40,8 +50,7 @@ for col in numeric_cols:
     ax.set_ylabel('Frequency', fontsize=11)
     plt.tight_layout()
     plot_file = f"01_distribution_{col}.png"
-    fig.savefig(os.path.join(PLOTS_DIR, plot_file), dpi=150)
-    fig.savefig(os.path.join(EDA_OUT_DIR, plot_file), dpi=150)
+    save_plot_dual(fig, plot_file)
     plt.close(fig)
 
 # 2. Boxplots for Outlier Analysis
@@ -52,8 +61,7 @@ for col in numeric_cols:
     ax.set_xlabel(col, fontsize=11)
     plt.tight_layout()
     plot_file = f"02_boxplot_{col}.png"
-    fig.savefig(os.path.join(PLOTS_DIR, plot_file), dpi=150)
-    fig.savefig(os.path.join(EDA_OUT_DIR, plot_file), dpi=150)
+    save_plot_dual(fig, plot_file)
     plt.close(fig)
 
 # 3. Correlation Matrix Heatmap
@@ -62,8 +70,7 @@ corr_matrix = df[numeric_cols + (['Crop_Year'] if 'Crop_Year' in df.columns else
 sns.heatmap(corr_matrix, annot=True, cmap='Blues', fmt='.2f', linewidths=0.5, ax=ax)
 ax.set_title('Feature Correlation Matrix Heatmap', fontsize=14, fontweight='bold', pad=12)
 plt.tight_layout()
-fig.savefig(os.path.join(PLOTS_DIR, "14_correlation_heatmap.png"), dpi=150)
-fig.savefig(os.path.join(EDA_OUT_DIR, "14_correlation_heatmap.png"), dpi=150)
+save_plot_dual(fig, "14_correlation_heatmap.png")
 plt.close(fig)
 
 corr_matrix.to_csv(os.path.join(EDA_OUT_DIR, "13_correlation_matrix.csv"))
@@ -72,24 +79,22 @@ corr_matrix.to_csv(os.path.join(EDA_OUT_DIR, "13_correlation_matrix.csv"))
 if "Season" in df.columns:
     fig, ax = plt.subplots(figsize=(10, 5))
     season_df = df.groupby('Season')['Yield'].mean().sort_values(ascending=False).reset_index()
-    sns.barplot(data=season_df, x='Season', y='Yield', palette='viridis', ax=ax)
+    sns.barplot(data=season_df, x='Season', y='Yield', hue='Season', palette='viridis', legend=False, ax=ax)
     ax.set_title('Average Agricultural Yield by Crop Season', fontsize=14, fontweight='bold', pad=12)
     ax.set_ylabel('Mean Yield', fontsize=11)
     plt.xticks(rotation=25)
     plt.tight_layout()
-    fig.savefig(os.path.join(PLOTS_DIR, "eda_seasonal_yield.png"), dpi=150)
-    fig.savefig(os.path.join(EDA_OUT_DIR, "eda_seasonal_yield.png"), dpi=150)
+    save_plot_dual(fig, "eda_seasonal_yield.png")
     plt.close(fig)
 
 # 5. Top 10 High-Yielding Crops
 top_crops = df.groupby('Crop')['Yield'].mean().sort_values(ascending=False).head(10).reset_index()
 fig, ax = plt.subplots(figsize=(10, 5))
-sns.barplot(data=top_crops, x='Yield', y='Crop', palette='crest', ax=ax)
+sns.barplot(data=top_crops, x='Yield', y='Crop', hue='Crop', palette='crest', legend=False, ax=ax)
 ax.set_title('Top 10 High-Yielding Crops (Mean Yield)', fontsize=14, fontweight='bold', pad=12)
 ax.set_xlabel('Mean Yield', fontsize=11)
 plt.tight_layout()
-fig.savefig(os.path.join(PLOTS_DIR, "eda_crops_distribution.png"), dpi=150)
-fig.savefig(os.path.join(EDA_OUT_DIR, "eda_crops_distribution.png"), dpi=150)
+save_plot_dual(fig, "eda_crops_distribution.png")
 plt.close(fig)
 
 # 6. EDA Summary JSON

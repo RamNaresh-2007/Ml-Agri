@@ -41,7 +41,7 @@ if "Production" in df.columns:
     df = df.drop(columns=["Production"])
 
 for col in df.select_dtypes(include=['object', 'string']).columns:
-    df[col] = df[col].apply(lambda s: s.strip() if isinstance(s, str) else s)
+    df[col] = df[col].astype(str).str.strip()
 
 for col in ['Crop_Year', 'Area', 'Annual_Rainfall', 'Fertilizer', 'Pesticide', 'Yield']:
     if col in df.columns:
@@ -117,9 +117,9 @@ comp_df.to_csv(os.path.join(OUT_UTILS_DIR, "regression_model_comparison.csv"), i
 champion_name = "Random Forest"
 champion_pipe = trained_pipelines[champion_name]
 
-joblib.dump(champion_pipe, os.path.join(OUT_REG_DIR, "random_forest.joblib"))
-joblib.dump(champion_pipe, os.path.join(OUT_REG_DIR, "model.joblib"))
-joblib.dump(champion_pipe.named_steps['prep'], os.path.join(OUT_DATA_DIR, "preprocessor.joblib"))
+joblib.dump(champion_pipe, os.path.join(OUT_REG_DIR, "random_forest.joblib"), compress=3)
+joblib.dump(champion_pipe, os.path.join(OUT_REG_DIR, "model.joblib"), compress=3)
+joblib.dump(champion_pipe.named_steps['prep'], os.path.join(OUT_DATA_DIR, "preprocessor.joblib"), compress=3)
 
 print("\nStep 3: Exporting Summary Metrics & Categories...")
 summary_metrics = {

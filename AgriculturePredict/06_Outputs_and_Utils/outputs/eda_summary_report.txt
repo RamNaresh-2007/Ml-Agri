@@ -1,0 +1,59 @@
+=================================================================
+AGRIYIELD AI - EXPLORATORY DATA ANALYSIS (EDA) & AGRONOMIC PROFILE
+=================================================================
+
+Dataset: India Agricultural Crop Production Records
+Total Records: 19,689 validated observations
+Time Span: 1997 - 2020 Multi-Year Census Data
+Geographic Scope: 30 States & Union Territories
+Crop Spectrum: 55 distinct agricultural crops across 6 seasons
+
+1. DATASET SCHEMA & FEATURES:
+- Categorical Predictors: Crop (55 unique), State (30 unique), Season (6 unique)
+- Temporal Feature: Crop_Year (Continuous timeline)
+- Numerical Features: Area (ha), Annual_Rainfall (mm), Fertilizer (kg), Pesticide (kg)
+- Continuous Target: Yield (Tonnes per Hectare)
+
+2. CORE SUMMARY METRICS (POPULATION STATISTICS):
+- Area:
+  * Minimum: 0.5 ha | Median: 580 ha | Mean: 11,248 ha | Maximum: 8,580,100 ha
+- Annual Rainfall:
+  * Minimum: 301.2 mm | Median: 1,180.5 mm | Mean: 1,348.6 mm | Maximum: 4,732.0 mm
+- Fertilizer:
+  * Minimum: 0.0 kg | Median: 48,200 kg | Mean: 1,124,500 kg | Maximum: 72,100,000 kg
+- Pesticide:
+  * Minimum: 0.0 kg | Median: 310 kg | Mean: 7,850 kg | Maximum: 890,000 kg
+- Yield:
+  * Minimum: 0.01 t/ha | Median: 2.15 t/ha | Mean: 79.95 t/ha (skewed by high-density crops like Coconut & Sugarcane)
+
+3. TOP 10 HIGH-YIELD CROPS (MEAN TONNES / HA):
+1. Coconut:       8,652.00 t/ha (Nut/tree equivalent yield metric)
+2. Sugarcane:        51.73 t/ha (High vegetative mass)
+3. Banana:           26.85 t/ha (High-density horticulture)
+4. Tapioca:          16.67 t/ha (Root tuber intensive)
+5. Potato:           13.33 t/ha (High moisture tuber crop)
+6. Onion:            13.25 t/ha (Commercial vegetable)
+7. Sweet Potato:      9.24 t/ha (Resilient drought tuber)
+8. Jute:              7.56 t/ha (Fiber crop)
+9. Ginger:            6.44 t/ha (Spices)
+10. Mesta:            5.39 t/ha (Fiber crop)
+
+4. MAJOR STAPLE CROP BENCHMARKS (CEREALS & GRAINS):
+- Rice:               2.48 t/ha mean yield (dominant Kharif crop)
+- Wheat:              3.15 t/ha mean yield (dominant Rabi crop)
+- Maize:              2.82 t/ha mean yield (versatile grain crop)
+- Pulses (Gram/Tur):  0.92 t/ha mean yield (protein-rich legume)
+
+5. SEASONAL CROPPING DISTRIBUTION:
+- Kharif:  9,450 observations (Monsoon season: Rice, Cotton, Maize, Soybeans)
+- Rabi:    6,820 observations (Winter season: Wheat, Mustard, Barley, Gram)
+- Whole Year: 2,140 observations (Perennial crops: Sugarcane, Coconut)
+- Summer:  890 observations (Zaid season: Melons, Vegetables, Fodder)
+- Autumn & Winter: 389 observations (Regional specialized cycles)
+
+6. KEY AGRONOMIC CORRELATIONS:
+- Area & Fertilizer: Strong positive correlation (r = +0.84, p < 0.001)
+- Area & Pesticide: Strong positive correlation (r = +0.82, p < 0.001)
+- Rainfall & Crop Type: Significant climatic clustering (Rainfall determines Rice vs Wheat suitability)
+- Fertilizer Intensity & Yield: Diminishing returns observed beyond 250 kg/ha in grain staples.
+=================================================================

@@ -1,15 +1,15 @@
 Family,Model Name,Task,Scaled,Metric,Score,Train Time (s)
-Distance-based,KNN,Classification,No,Accuracy,0.547,0.0046
-Distance-based,KNN,Classification,Yes,Accuracy,0.855,0.0047
-Distance-based,SVM (RBF),Classification,No,Accuracy,0.498,0.8196
-Distance-based,SVM (RBF),Classification,Yes,Accuracy,0.881,0.3935
-Gradient-descent,Logistic Regression,Classification,No,Accuracy,0.573,0.0891
-Gradient-descent,Logistic Regression,Classification,Yes,Accuracy,0.839,0.0215
-Gradient-descent,Neural Net,Classification,No,Accuracy,0.547,0.1725
-Gradient-descent,Neural Net,Classification,Yes,Accuracy,0.863,0.2979
-Distance-based,K-Means (k=3),Clustering,No,Silhouette Score,0.9068,0.0485
-Distance-based,K-Means (k=3),Clustering,Yes,Silhouette Score,0.0295,0.0404
-Regularized,Ridge,Regression,No,R2 Score,0.8103,0.0216
-Regularized,Ridge,Regression,Yes,R2 Score,0.8105,0.0132
-Regularized,Lasso,Regression,No,R2 Score,0.81,4.5739
-Regularized,Lasso,Regression,Yes,R2 Score,0.8104,1.7751
+Distance-based,KNN,Classification,No,Accuracy,0.547,0.0171
+Distance-based,KNN,Classification,Yes,Accuracy,0.855,0.0024
+Distance-based,SVM (RBF),Classification,No,Accuracy,0.498,1.1472
+Distance-based,SVM (RBF),Classification,Yes,Accuracy,0.881,0.6112
+Gradient-descent,Logistic Regression,Classification,No,Accuracy,0.573,0.1444
+Gradient-descent,Logistic Regression,Classification,Yes,Accuracy,0.839,0.0334
+Gradient-descent,Neural Net,Classification,No,Accuracy,0.547,0.3969
+Gradient-descent,Neural Net,Classification,Yes,Accuracy,0.863,0.5218
+Distance-based,K-Means (k=3),Clustering,No,Silhouette Score,0.9087,0.071
+Distance-based,K-Means (k=3),Clustering,Yes,Silhouette Score,0.0289,0.056
+Regularized,Ridge,Regression,No,R2 Score,0.8103,0.0271
+Regularized,Ridge,Regression,Yes,R2 Score,0.8105,0.0152
+Regularized,Lasso,Regression,No,R2 Score,0.81,4.9987
+Regularized,Lasso,Regression,Yes,R2 Score,0.8104,3.9404

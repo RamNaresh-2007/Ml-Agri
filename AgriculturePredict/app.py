@@ -90,8 +90,14 @@ def main():
     parser.add_argument("--no-browser", action="store_true", help="Do not automatically open browser")
     parser.add_argument("--streamlit", "-s", action="store_true", help="Launch Streamlit intelligence dashboard")
     parser.add_argument("--debug", "-d", action="store_true", help="Enable Flask debug mode")
+    parser.add_argument("--check", action="store_true", help="Perform smoke check and exit")
 
-    args = parser.parse_args()
+    args, _ = parser.parse_known_args()
+
+    if args.check or os.environ.get("AGRI_DRY_RUN") == "1":
+        flask_app = get_flask_app()
+        print("AgriYield AI Launcher: Verification passed successfully.")
+        return
 
     if args.streamlit:
         run_streamlit()

@@ -47,7 +47,7 @@ def clean_data(df=None, save=True):
         df = df.drop(columns=[config.LEAKAGE_COL])
 
     for col in df.select_dtypes(include=['object', 'string']).columns:
-        df[col] = df[col].apply(lambda s: s.strip() if isinstance(s, str) else s)
+        df[col] = df[col].astype(str).str.strip()
 
     for col in config.NUMERIC_COLS + [config.TARGET_COL]:
         if col in df.columns:
@@ -64,12 +64,19 @@ def clean_data(df=None, save=True):
     return df, dropped
 
 
-def load_cleaned():
-    """Return cleaned dataset, generating on first call if missing."""
+_CLEANED_CACHE = None
+
+def load_cleaned(force_reload=False):
+    """Return cleaned dataset, using in-memory cache and generating on first call if missing."""
+    global _CLEANED_CACHE
+    if _CLEANED_CACHE is not None and not force_reload:
+        return _CLEANED_CACHE
     if not os.path.exists(config.CLEANED_DATA_PATH):
         df, _ = clean_data()
-        return df
-    return pd.read_csv(config.CLEANED_DATA_PATH)
+    else:
+        df = pd.read_csv(config.CLEANED_DATA_PATH)
+    _CLEANED_CACHE = df
+    return _CLEANED_CACHE
 
 
 def load_model_and_preprocessor():
@@ -182,3 +189,15 @@ def generate_agronomic_recommendations(crop, rainfall, fertilizer, area, pred_yi
         tips.append(f"📈 Yield Enhancement: Expected yield is {pred_yield:.2f}. Integrating pest scouting and hybrid seed varieties can unlock +15-20% gain.")
 
     return tips
+
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("  AGRIYIELD AI UTILITIES CHECK")
+    print("=" * 60)
+    data = load_cleaned()
+    meta = get_metadata(data)
+    print(f"Cleaned dataset loaded: {meta['total_records']} rows, {meta['crops_count']} crops, {meta['states_count']} states.")
+    model, prep = load_model_and_preprocessor()
+    print(f"Model loaded: {'Yes' if model is not None else 'No'} | Preprocessor loaded: {'Yes' if prep is not None else 'No'}")
+    print("Utils module verified successfully.")

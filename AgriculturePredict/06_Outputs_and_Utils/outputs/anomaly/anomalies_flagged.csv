@@ -1,0 +1,139 @@
+Crop,State,Season,Crop_Year,Area,Annual_Rainfall,Fertilizer,Pesticide,Yield,Fertilizer_per_Ha,Anomaly_Category,Ensemble_Anomaly_Count,Root_Cause
+Wheat,Uttar Pradesh,Rabi       ,1997,9152928.0,473.9,871084157.8,2837407.68,2.416,95.17000000437018,High-Confidence Anomaly,4,Multivariate Latent Discrepancy
+Rice,Uttar Pradesh,Kharif     ,2010,5631949.0,742.6,935523048.4,1351667.76,2.052916667,166.11000000177557,High-Confidence Anomaly,4,Multivariate Latent Discrepancy
+Rice,Uttar Pradesh,Kharif     ,1998,5875153.0,743.4,580465116.4,1703794.37,1.865060241,98.8,High-Confidence Anomaly,4,Multivariate Latent Discrepancy
+Soyabean,Madhya Pradesh,Kharif     ,2015,5910000.0,1000.7,933248100.0,1950300.0,0.812653061,157.91,High-Confidence Anomaly,4,Multivariate Latent Discrepancy
+Soyabean,Madhya Pradesh,Kharif     ,2019,6194044.0,1446.7,1063888997.0,2291796.28,0.678431373,171.75999992896402,High-Confidence Anomaly,4,Multivariate Latent Discrepancy
+Wheat,Uttar Pradesh,Rabi       ,2012,9733617.0,746.3,1467829444.0,3017421.27,3.2492,150.8000000410947,High-Confidence Anomaly,4,Multivariate Latent Discrepancy
+Rice,Uttar Pradesh,Kharif     ,2013,5955306.0,995.2,860482163.9,1607932.62,2.396133333,144.4899999932833,High-Confidence Anomaly,4,Multivariate Latent Discrepancy
+Coconut ,Tamil Nadu,Whole Year ,2009,400466.0,928.5,62400612.12,68079.22,14134.65935,155.82,High-Confidence Anomaly,4,Suspicious Yield Outlier (Reporting Error)
+Soyabean,Madhya Pradesh,Kharif     ,2008,5281337.0,895.0,755442444.5,475320.33,0.978163265,143.04000000378693,High-Confidence Anomaly,4,Multivariate Latent Discrepancy
+Wheat,Madhya Pradesh,Rabi       ,2011,5248479.0,852.6,879225202.1,1731998.07,2.5908,167.52000000381062,High-Confidence Anomaly,4,Multivariate Latent Discrepancy
+Coconut ,Karnataka,Whole Year ,2002,375425.0,860.8,35541484.75,93856.25,4165.087778,94.67,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Coconut ,Karnataka,Whole Year ,1999,321158.0,1203.8,34084498.54,86712.66,4680.495926,106.13,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Soyabean,Madhya Pradesh,Kharif     ,2010,5538358.0,856.3,919976647.4,1329205.92,0.9984,166.11000000361116,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Cotton(lint),Maharashtra,Kharif     ,2017,4350818.0,1129.5,684992785.9,1653310.84,1.647407407,157.43999999540316,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Karnataka,Whole Year ,1998,310399.0,1260.8,30667421.2,90015.71,4692.261111,98.8,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Coconut ,Goa,Whole Year ,2019,26542.0,4489.5,4558853.92,9820.54,6359.69,171.76,High-Confidence Anomaly,3,Extreme Flood / Waterlogging & Suspicious Yield Outlier (Reporting Error)
+Soyabean,Madhya Pradesh,Kharif     ,2004,4580458.0,895.7,496246819.7,961896.18,0.821875,108.33999999563362,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Karnataka,Whole Year ,2007,405328.0,1323.3,54070755.2,64852.48,5079.793793,133.4,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Cotton(lint),Maharashtra,Kharif     ,2011,4166700.0,1174.095455,698005584.0,1375011.0,1.7416,167.52,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Rice,Punjab,Kharif     ,2008,2735000.0,691.3,391214400.0,246150.0,3.9855,143.04,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Kerala,Whole Year ,1997,884344.0,3252.4,84163018.48,274146.64,5376.054286,95.17,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Rice,Chhattisgarh,Kharif     ,2018,4141378.0,1515.5,671731511.6,1449482.3,1.521481481,162.20000000000002,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Rice,Chhattisgarh,Kharif     ,2019,4266022.0,1420.3,732731938.7,1578428.14,1.936428571,171.7599999953118,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Rice,Chhattisgarh,Kharif     ,2011,3939826.0,1302.7,659999651.5,1300142.58,1.527777778,167.51999999492364,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Cotton(lint),Maharashtra,Kharif     ,2015,4207200.0,875.7,664358952.0,1388376.0,0.8904,157.91,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Goa,Whole Year ,1999,24975.0,3879.3,2650596.75,6743.25,4868.07,106.13,High-Confidence Anomaly,3,Extreme Flood / Waterlogging & Suspicious Yield Outlier (Reporting Error)
+Coconut ,West Bengal,Whole Year ,1997,24273.0,1852.9,2310061.41,7524.63,13003.78778,95.17,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Coconut ,Karnataka,Whole Year ,2017,446607.0,1111.7,70313806.08,169710.66,8182.769667,157.44,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Rice,Bihar,Winter     ,2008,2842875.0,1197.7,406644840.0,255858.75,1.545789474,143.04,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Kerala,Whole Year ,2007,818812.0,3489.6,109229520.8,131009.92,6390.165714,133.4,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Cotton(lint),Maharashtra,Kharif     ,2010,3941900.0,1389.0,654789009.0,946056.0,1.861538462,166.11,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Tamil Nadu,Whole Year ,2013,428538.0,740.9,61919455.62,115705.26,9606.394516,144.48999999999998,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Coconut ,West Bengal,Whole Year ,1998,24616.0,2152.5,2432060.8,7138.64,12448.06222,98.8,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Rice,West Bengal,Winter     ,2014,4008662.0,1483.5,605147615.5,1322858.46,2.700555556,150.9599999950108,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Soyabean,Madhya Pradesh,Kharif     ,2005,4576216.0,1032.7,548779822.7,961005.36,0.936875,119.91999999562958,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Wheat,Madhya Pradesh,Whole Year ,2009,4458995.0,904.1,694800600.9,758029.15,1.8538,155.82,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Tamil Nadu,Whole Year ,2002,345825.0,315.9,32739252.75,86456.25,8497.531111,94.67,High-Confidence Anomaly,3,Catastrophic Drought Stress & Suspicious Yield Outlier (Reporting Error)
+Coconut ,Andhra Pradesh,Whole Year ,2017,103968.0,868.2,16368721.92,39507.84,12746.54,157.44,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Rice,West Bengal,Winter     ,2011,3999653.0,1686.5,670021870.6,1319885.49,2.475555556,167.52000001000087,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Karnataka,Whole Year ,2003,375957.0,867.6,37212223.86,90229.68,4165.193333,98.98,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Rice,Madhya Pradesh,Kharif     ,2008,1706557.0,895.0,244105913.3,153590.13,0.911020408,143.0400000117195,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Sugarcane,Uttar Pradesh,Whole Year ,2002,2148981.0,664.0,203444031.3,537245.25,51.2157971,94.6700000139601,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Goa,Whole Year ,2000,25025.0,3886.9,2456704.25,6506.5,4999.8,98.17,High-Confidence Anomaly,3,Extreme Flood / Waterlogging & Suspicious Yield Outlier (Reporting Error)
+Jowar,Maharashtra,Rabi       ,2008,3223900.0,1052.8,461146656.0,290151.0,0.8396,143.04,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Rice,Chhattisgarh,Kharif     ,2013,3987721.0,1418.3,576185807.3,1076684.67,1.75037037,144.49000000250768,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Karnataka,Whole Year ,2008,418581.0,1164.1,59873826.24,37672.29,6801.366552,143.04,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Rice,Uttar Pradesh,Kharif     ,2004,5934405.0,704.0,642933437.7,1246225.05,1.827714286,108.34,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Kerala,Whole Year ,2002,899198.0,2511.2,85127074.66,224799.5,5969.78,94.67,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Wheat,Madhya Pradesh,Rabi       ,2006,4262382.0,1072.3,544348805.2,937724.04,1.73125,127.7099999953078,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Cotton(lint),Maharashtra,Kharif     ,2016,4212480.0,1151.1,645562560.0,1474368.0,2.6268,153.25,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Rice,Uttar Pradesh,Kharif     ,2009,5148046.0,585.8,802168527.7,875167.82,2.00971831,155.81999999611503,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Wheat,Madhya Pradesh,Rabi       ,1998,4577900.0,962.7,452296520.0,1327591.0,1.618983051,98.8,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Assam,Whole Year ,2008,19135.0,2109.9,2737070.4,1722.15,7716.895185,143.04,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Coconut ,Karnataka,Whole Year ,2004,383206.0,1117.7,41516538.04,80473.26,4165.395185,108.34,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Cotton(lint),Gujarat,Kharif     ,2008,2353600.0,746.1,336658944.0,211824.0,3.120434783,143.04,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Karnataka,Whole Year ,2001,369828.0,1002.9,37770533.64,96155.28,4164.951481,102.13,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Coconut ,Kerala,Whole Year ,2015,790223.0,2602.9,124784113.9,260773.59,6721.946429,157.90999996203604,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Coconut ,Karnataka,Whole Year ,2000,335996.0,1213.3,32984727.32,87358.96,4673.661111,98.17,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Rice,Odisha,Kharif     ,2001,4500000.0,1672.5,459585000.0,1170000.0,1.583666667,102.13,High-Confidence Anomaly,3,Multivariate Latent Discrepancy
+Coconut ,Kerala,Whole Year ,2010,770473.13,3131.8,127983291.6,184913.5512,6501.544286,166.10999996846093,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Coconut ,Karnataka,Whole Year ,2014,440514.0,1238.5,66499993.44,145369.62,9449.426667,150.96,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Coconut ,Tamil Nadu,Whole Year ,2006,374604.0,927.9,47840676.84,82412.88,13584.69138,127.71000000000001,High-Confidence Anomaly,3,Suspicious Yield Outlier (Reporting Error)
+Rice,Jharkhand,Winter     ,2008,1008437.16,1295.2,144246851.4,90759.3444,1.39125,143.04000003331888,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Wheat,Madhya Pradesh,Rabi       ,2003,4078974.0,1163.0,403736846.5,978953.76,1.797916667,98.9799999950968,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Jowar,Maharashtra,Rabi       ,2004,3223200.0,1052.0,349201488.0,676872.0,0.674615385,108.34,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Tobacco,Meghalaya,Rabi       ,2018,802.0,5649.1,130084.4,280.7,1.055,162.2,Moderate Anomaly,2,Extreme Flood / Waterlogging
+Rice,Bihar,Winter     ,2002,2881073.0,1105.8,272751180.9,720268.25,1.345945946,94.66999999652906,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Punjab,Kharif     ,2016,3046000.0,635.9,466799500.0,1066100.0,4.066818182,153.25,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Sugarcane,Uttar Pradesh,Kharif     ,2016,2159841.0,965.3,330995633.3,755944.35,64.83346667,153.25000002314985,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Odisha,Winter     ,1998,3358901.0,1357.1,331859418.8,974081.29,1.342333333,98.8,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Andhra Pradesh,Kharif     ,2010,2921793.0,1297.0,485339035.2,701230.32,2.666818182,166.10999998973233,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,West Bengal,Winter     ,2001,3783766.0,1556.6,386436021.6,983779.16,2.235294118,102.13000000528575,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Coconut ,Assam,Whole Year ,2006,18595.0,1774.9,2374767.45,4090.9,6233.948519,127.71000000000001,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Gram,Madhya Pradesh,Rabi       ,2001,2547801.0,955.0,260206916.1,662428.26,0.886444444,102.12999998822514,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Cotton(lint),Maharashtra,Kharif     ,1999,3253900.0,1166.5,345336407.0,878553.0,1.213846154,106.13,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Wheat,Gujarat,Rabi       ,2008,1091400.0,746.1,156113856.0,98226.0,2.349615385,143.04,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Punjab,Kharif     ,1999,2604000.0,364.4,276362520.0,703080.0,3.332352941,106.13,Moderate Anomaly,2,Catastrophic Drought Stress
+Sugarcane,Uttar Pradesh,Kharif     ,2006,2246520.0,590.5,286903069.2,494234.4,51.90457143,127.71,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Odisha,Winter     ,2007,3376000.0,1633.8,450358400.0,540160.0,1.747,133.4,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Punjab,Kharif     ,2009,2802000.0,371.3,436607640.0,476340.0,3.9775,155.82,Moderate Anomaly,2,Catastrophic Drought Stress
+Wheat,Madhya Pradesh,Rabi       ,2007,4089343.0,740.4,545518356.2,654294.88,1.548958333,133.4,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Sugarcane,Puducherry,Kharif     ,2017,1445.0,1582.4,227500.8,549.1,125.0,157.44,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Wheat,Haryana,Rabi       ,2007,2460680.0,443.8,328254712.0,393708.8,4.036,133.4,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Chhattisgarh,Kharif     ,2003,3828992.0,1643.7,378993628.2,918958.08,1.4375,98.98000001044662,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,West Bengal,Winter     ,2003,4126706.0,1526.7,408461359.9,990409.44,2.283333333,98.98000000484647,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Coconut ,West Bengal,Whole Year ,2007,28644.0,2007.5,3821109.6,4583.04,12380.47722,133.4,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Rice,Punjab,Kharif     ,1997,2281000.0,690.1,217082770.0,707110.0,3.476470588,95.17,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Coconut ,Andhra Pradesh,Whole Year ,2001,104244.0,928.4,10646439.72,27103.44,9057.671111,102.13000000000001,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Coconut ,Assam,Whole Year ,1998,20166.0,2354.4,1992400.8,5848.14,6045.886957,98.8,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Arhar/Tur,Maharashtra,Kharif     ,2008,1008500.0,1052.8,144255840.0,90765.0,0.5575,143.04,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Bihar,Winter     ,2019,2593026.0,1194.7,445378145.8,959419.62,2.173157895,171.760000015426,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Onion,Andhra Pradesh,Kharif     ,2017,17336.0,868.2,2729379.84,6587.68,381.42,157.44,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Wheat,Madhya Pradesh,Rabi       ,2004,4188248.0,895.7,453754788.3,879532.08,1.7075,108.33999999522473,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Sugarcane,Uttar Pradesh,Kharif     ,2012,2211712.0,746.3,333526169.6,685630.72,56.98173333,150.8,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Madhya Pradesh,Kharif     ,2019,3076000.0,1446.7,528333760.0,1138120.0,1.858,171.76,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Coconut ,Goa,Whole Year ,2002,25068.0,2516.3,2373187.56,6267.0,4867.56,94.67,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Wheat,Bihar,Rabi       ,2007,2131232.0,1600.2,284306348.8,340997.12,2.228421053,133.4,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Coconut ,Assam,Whole Year ,2002,20919.0,1973.6,1980401.73,5229.75,6959.633043,94.67,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Coconut ,West Bengal,Whole Year ,2014,29680.0,1483.5,4480492.8,9794.4,12561.52684,150.95999999999998,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Coconut ,Assam,Whole Year ,2000,20913.0,1965.5,2053029.21,5437.38,5771.352609,98.17,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Rice,Andhra Pradesh,Kharif     ,2001,2426073.0,928.4,247774835.5,630778.98,2.627272727,102.13000000412188,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Sugarcane,Uttar Pradesh,Whole Year ,1999,2011024.0,883.4,213429977.1,542976.48,52.28773333,106.12999999005481,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,West Bengal,Winter     ,2010,3362122.0,1096.0,558482085.4,806909.28,2.487222222,166.10999999405138,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Other  Rabi pulses,Meghalaya,Rabi       ,1998,1938.0,6552.7,191474.4,562.02,0.755714286,98.8,Moderate Anomaly,2,Extreme Flood / Waterlogging
+Rice,Andhra Pradesh,Kharif     ,2009,2062870.0,711.0,321436403.4,350687.9,2.790909091,155.82,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Cotton(lint),Andhra Pradesh,Kharif     ,2008,1398900.0,944.6,200098656.0,125901.0,2.456363636,143.04,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Wheat,Maharashtra,Rabi       ,2008,1021800.0,1052.8,146158272.0,91962.0,1.431666667,143.04,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Jowar,Maharashtra,Rabi       ,2001,3356700.0,1035.8,342819771.0,872742.0,0.722142857,102.13,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Coconut ,West Bengal,Whole Year ,2013,29300.0,1939.9,4233557.0,7911.0,12507.61667,144.49,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Rice,Chhattisgarh,Kharif     ,2004,3843825.0,1122.8,416440000.5,807203.25,1.160625,108.34,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Odisha,Winter     ,2011,3233000.0,1346.2,541592160.0,1066890.0,1.405333333,167.52,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Cotton(lint),Meghalaya,Kharif     ,1998,7549.0,6552.7,745841.2,2189.21,0.796666667,98.8,Moderate Anomaly,2,Extreme Flood / Waterlogging
+Rice,Bihar,Winter     ,2007,2842665.0,1600.2,379211511.0,454826.4,1.260789474,133.4,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Gram,Madhya Pradesh,Rabi       ,2002,2464494.0,800.8,233313647.0,616123.5,0.742444444,94.67000000811525,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Dry chillies,Meghalaya,Whole Year ,1998,1764.0,6552.7,174283.2,511.56,0.598571429,98.80000000000001,Moderate Anomaly,2,Extreme Flood / Waterlogging
+Onion,Andhra Pradesh,Kharif     ,2018,24750.0,1220.5,4014450.0,8662.5,247.5727273,162.2,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Sugarcane,Puducherry,Kharif     ,2018,1444.0,1693.9,234216.8,505.4,130.0,162.2,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Masoor,Meghalaya,Rabi       ,2018,1258.0,5649.1,204047.6,440.3,1.321428571,162.20000000000002,Moderate Anomaly,2,Extreme Flood / Waterlogging
+Rice,Odisha,Winter     ,2006,3379000.0,1716.9,431532090.0,743380.0,1.580333333,127.71,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Coconut ,Andhra Pradesh,Whole Year ,2000,102646.0,935.6,10076757.82,26687.96,9101.813684,98.17,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Rice,Andhra Pradesh,Kharif     ,2011,2873949.0,861.9,481443936.5,948403.17,2.909090909,167.52000000695907,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Jowar,Maharashtra,Rabi       ,2005,3267600.0,1387.2,391850592.0,686196.0,0.713846154,119.92,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Soyabean,Madhya Pradesh,Kharif     ,2003,4198619.0,1163.0,415579308.6,1007668.56,1.019791667,98.97999999523654,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Wheat,Punjab,Rabi       ,2012,3517000.0,338.9,530363600.0,1090270.0,4.677272727,150.8,Moderate Anomaly,2,Catastrophic Drought Stress
+Sugarcane,Uttar Pradesh,Kharif     ,2014,2228261.0,616.4,336378280.6,735326.13,59.21533333,150.96000001795122,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Chhattisgarh,Kharif     ,2001,3810112.0,1550.0,389126738.6,990629.12,1.34375,102.13000001049839,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Cotton(lint),Maharashtra,Kharif     ,2009,3391500.0,1002.4,528463530.0,576555.0,1.444230769,155.82,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Coconut ,Puducherry,Whole Year ,2011,2095.0,1434.5875,350954.4,691.35,9838.6475,167.52,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Coconut ,West Bengal,Whole Year ,2015,29513.0,1717.0,4660397.83,9739.29,12593.58421,157.91,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Rice,Andhra Pradesh,Kharif     ,1997,2382500.0,927.5,226742525.0,738575.0,1.99173913,95.17,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Cotton(lint),Maharashtra,Kharif     ,2004,2839500.0,1052.0,307631430.0,596295.0,1.088888889,108.34,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Tamil Nadu,Kharif     ,1998,2386399.0,1077.1,235776221.2,692055.71,3.445,98.8,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Coconut ,West Bengal,Whole Year ,2011,29133.0,1686.5,4880360.16,9613.89,12317.74,167.52,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)
+Rice,Odisha,Winter     ,2009,3413000.0,1330.3,531813660.0,580210.0,1.575666667,155.82,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Rice,Andhra Pradesh,Kharif     ,2000,3003673.0,935.6,294870578.4,780954.98,2.7,98.16999999667074,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Black pepper,Meghalaya,Rabi       ,2018,1036.0,5649.1,168039.2,362.6,0.760909091,162.20000000000002,Moderate Anomaly,2,Extreme Flood / Waterlogging
+Rice,Punjab,Kharif     ,2018,3103000.0,585.5,503306600.0,1086050.0,4.011818182,162.2,Moderate Anomaly,2,Multivariate Latent Discrepancy
+Coconut ,Andhra Pradesh,Whole Year ,2002,105291.0,648.1,9967898.97,26322.75,9202.625556,94.67,Moderate Anomaly,2,Suspicious Yield Outlier (Reporting Error)

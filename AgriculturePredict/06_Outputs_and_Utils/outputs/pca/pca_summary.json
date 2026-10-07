@@ -1,0 +1,54 @@
+{
+  "n_samples": 15751,
+  "n_features": 5,
+  "feature_names": [
+    "Area",
+    "Annual_Rainfall",
+    "Fertilizer",
+    "Pesticide",
+    "Yield"
+  ],
+  "eigenvalues": [
+    2.9492,
+    1.0148,
+    0.9704,
+    0.0464,
+    0.0195
+  ],
+  "explained_variance_ratio": [
+    0.5898,
+    0.2029,
+    0.1941,
+    0.0093,
+    0.0039
+  ],
+  "cumulative_variance_ratio": [
+    0.5898,
+    0.7928,
+    0.9868,
+    0.9961,
+    1.0
+  ],
+  "kaiser_components_count": 2,
+  "components_needed_80pct": 3,
+  "components_needed_90pct": 3,
+  "components_needed_95pct": 3,
+  "reconstruction_errors": [
+    0.4102,
+    0.2072,
+    0.0132,
+    0.0039,
+    0.0
+  ],
+  "downstream_r2": {
+    "all_original_features": 0.0005,
+    "top_2_pca_components": 0.0004
+  },
+  "interpretations": [
+    "PC1 (59.0% var): Primarily driven positively by 'Area' (+0.99)",
+    "PC2 (20.3% var): Primarily driven positively by 'Yield' (+0.82)",
+    "PC3 (19.4% var): Primarily driven positively by 'Annual_Rainfall' (+0.80) with counter-balance from 'Yield' (-0.57)",
+    "PC4 (0.9% var): Primarily driven positively by 'Fertilizer' (+0.16)",
+    "PC5 (0.4% var): Primarily driven positively by 'Area' (+0.11)"
+  ]
+}

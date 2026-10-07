@@ -22,11 +22,15 @@ PREPROCESSOR_PATH = os.path.join(PROCESSED_DATA_DIR, "preprocessor.joblib")
 METRICS_PATH = os.path.join(OUTPUTS_DIR, "outputs", "metrics.json")
 CLUSTERING_SUMMARY_PATH = os.path.join(OUTPUTS_DIR, "outputs", "co4_clustering_summary.json")
 
-# Ensure fallback within 06_Outputs_and_Utils if random_forest.joblib is named differently
 if not os.path.exists(MODEL_PATH):
     alt_model = os.path.join(MODELS_DIR, "random_forest.joblib")
     if os.path.exists(alt_model):
         MODEL_PATH = alt_model
+
+if not os.path.exists(PREPROCESSOR_PATH):
+    alt_prep = os.path.join(MODELS_DIR, "preprocessor.joblib")
+    if os.path.exists(alt_prep):
+        PREPROCESSOR_PATH = alt_prep
 
 # Column Definitions
 CATEGORICAL_COLS = ["Crop", "Season", "State"]
@@ -38,6 +42,8 @@ LEAKAGE_COL = "Production"
 LOGISTIC_DIR = os.path.join(OUTPUTS_DIR, "outputs", "logistic")
 HIERARCHICAL_DIR = os.path.join(OUTPUTS_DIR, "outputs", "hierarchical")
 DBSCAN_DIR = os.path.join(OUTPUTS_DIR, "outputs", "dbscan")
+PCA_DIR = os.path.join(OUTPUTS_DIR, "outputs", "pca")
+ANOMALY_DIR = os.path.join(OUTPUTS_DIR, "outputs", "anomaly")
 SPLITS_DIR = os.path.join(OUTPUTS_DIR, "splits")
 PROCESSED_DIR = os.path.join(OUTPUTS_DIR, "processed")
 SCALING_RESULTS_DIR = os.path.join(OUTPUTS_DIR, "Outputs")

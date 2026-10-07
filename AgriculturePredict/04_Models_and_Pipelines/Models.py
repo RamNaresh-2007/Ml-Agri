@@ -146,8 +146,8 @@ def evaluate_models():
 
     # 3. Regression Models
     reg_configs = [
-        ("Regularized", "Ridge", lambda: Ridge(alpha=1.0)),
-        ("Regularized", "Lasso", lambda: Lasso(alpha=0.1))
+        ("Regularized", "Ridge", lambda: Ridge(alpha=1.0, random_state=42)),
+        ("Regularized", "Lasso", lambda: Lasso(alpha=0.1, max_iter=200, tol=1e-3, random_state=42))
     ]
 
     for family, name, model_fn in reg_configs:

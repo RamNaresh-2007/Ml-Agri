@@ -6,7 +6,11 @@
 # 3. Silhouette score evaluation across cut heights (K = 2 to 7).
 # 4. Cluster profiling of agricultural characteristics.
 
-import sys, os
+import sys, os, types
+# Safety fallback for Windows Application Control policies on _vq
+if 'scipy.cluster.vq' not in sys.modules:
+    sys.modules['scipy.cluster.vq'] = types.ModuleType('scipy.cluster.vq')
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 APP_DIR = os.path.join(BASE_DIR, "..", "05_Web_Application")
 if APP_DIR not in sys.path:
@@ -19,22 +23,21 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import AgglomerativeClustering
 from sklearn.metrics import silhouette_score
-from scipy.cluster.hierarchy import linkage, dendrogram, cophenet
+from scipy.cluster.hierarchy import linkage, dendrogram, cophenet, fcluster
 from scipy.spatial.distance import pdist
 import config
 
 os.makedirs(config.HIERARCHICAL_DIR, exist_ok=True)
 
-SUBSAMPLE_SIZE = 2000
+SUBSAMPLE_SIZE = 1000
 
 # 1. Load Data
 raw_path = getattr(config, "RAW_DATA_PATH", "")
 if not os.path.exists(raw_path):
     raw_path = os.path.join(BASE_DIR, "..", "01_Datasets", "crop_yield_sample.csv")
 
-print(f"Loading agricultural dataset from: {raw_path}")
+print(f"Loading agricultural dataset from: {raw_path}", flush=True)
 df_full = pd.read_csv(raw_path)
 df_full.columns = df_full.columns.str.strip()
 
@@ -47,14 +50,14 @@ x_imp = imputer.fit_transform(x_raw)
 scaler = StandardScaler()
 x_scaled_full = scaler.fit_transform(x_imp)
 
-# Subsample for tractable O(N^2) distance computation
+# Subsample for tractable distance computation
 n_samples = min(SUBSAMPLE_SIZE, len(x_scaled_full))
 rng = np.random.RandomState(config.RANDOM_STATE)
 sample_idx = rng.choice(len(x_scaled_full), size=n_samples, replace=False)
 x_sample = x_scaled_full[sample_idx]
 df_sample = df_full.iloc[sample_idx].reset_index(drop=True)
 
-print(f"Subsampled {n_samples:,} records for hierarchical distance matrices.")
+print(f"Subsampled {n_samples:,} records for hierarchical distance matrices.", flush=True)
 
 # 2. Cophenetic Correlation across Linkages
 p_dist = pdist(x_sample)
@@ -67,7 +70,7 @@ for method in linkage_methods:
     linkage_matrices[method] = Z
     c_score, _ = cophenet(Z, p_dist)
     cophenetic_scores[method] = c_score
-    print(f"Linkage [{method:>8s}]: Cophenetic Correlation = {c_score:.4f}")
+    print(f"Linkage [{method:>8s}]: Cophenetic Correlation = {c_score:.4f}", flush=True)
 
 # 3. Dendrograms Plot
 fig, axes = plt.subplots(2, 2, figsize=(14, 10))
@@ -90,18 +93,19 @@ for i, method in enumerate(linkage_methods):
 plt.suptitle("Hierarchical Clustering Dendrograms by Linkage Strategy", fontsize=15, fontweight="bold")
 plt.tight_layout()
 dendro_path = os.path.join(config.HIERARCHICAL_DIR, "dendrograms_by_linkage.png")
-plt.savefig(dendro_path, dpi=300)
+plt.savefig(dendro_path, dpi=150)
 plt.close()
-print(f"Saved dendrograms: {dendro_path}")
+print(f"Saved dendrograms: {dendro_path}", flush=True)
 
 # 4. Silhouette Evaluation across Cut Heights (K = 2 to 7)
+# High performance cluster cutting using precomputed Ward linkage
 k_values = list(range(2, 8))
 silhouette_scores = []
+ward_linkage = linkage_matrices["ward"]
 
 for k in k_values:
-    model = AgglomerativeClustering(n_clusters=k, metric="euclidean", linkage="ward")
-    cluster_labels = model.fit_predict(x_sample)
-    sil = silhouette_score(x_sample, cluster_labels)
+    cluster_labels = fcluster(ward_linkage, t=k, criterion="maxclust")
+    sil = silhouette_score(x_sample, cluster_labels, sample_size=min(500, len(x_sample)), random_state=42)
     silhouette_scores.append(sil)
 
 plt.figure(figsize=(8, 5))
@@ -112,36 +116,33 @@ plt.ylabel("Silhouette Score")
 plt.grid(True, linestyle="--", alpha=0.6)
 sil_path = os.path.join(config.HIERARCHICAL_DIR, "silhouette_by_cut_height.png")
 plt.tight_layout()
-plt.savefig(sil_path, dpi=300)
+plt.savefig(sil_path, dpi=150)
 plt.close()
-print(f"Saved silhouette cut curve: {sil_path}")
+print(f"Saved silhouette cut curve: {sil_path}", flush=True)
 
 best_k = k_values[int(np.argmax(silhouette_scores))]
-print(f"Optimal K via Silhouette: {best_k} (score: {max(silhouette_scores):.4f})")
+print(f"Optimal K via Silhouette: {best_k} (score: {max(silhouette_scores):.4f})", flush=True)
 
 # 5. Cluster Profiling
-final_model = AgglomerativeClustering(n_clusters=best_k, metric="euclidean", linkage="ward")
-df_sample["Hierarchical_Cluster"] = final_model.fit_predict(x_sample)
+df_sample["Hierarchical_Cluster"] = fcluster(ward_linkage, t=best_k, criterion="maxclust")
 
 profile = df_sample.groupby("Hierarchical_Cluster")[feature_cols].mean()
 
-plt.figure(figsize=(10, 6))
-norm_profile = (profile - profile.mean()) / profile.std()
-norm_profile.T.plot(kind="bar", figsize=(10, 6), colormap="viridis")
-plt.title(f"Cluster Agricultural Profile (Standardized Means, K={best_k})", fontsize=13, fontweight="bold")
-plt.ylabel("Z-Score relative to overall mean")
-plt.xlabel("Agricultural Features")
-plt.xticks(rotation=30)
-plt.legend(title="Cluster")
+fig, ax = plt.subplots(figsize=(10, 6))
+std_vals = profile.std().replace(0, 1).fillna(1)
+norm_profile = (profile - profile.mean()) / std_vals
+norm_profile.T.plot(kind="bar", ax=ax, colormap="viridis")
+ax.set_title(f"Cluster Agricultural Profile (Standardized Means, K={best_k})", fontsize=13, fontweight="bold")
+ax.set_ylabel("Z-Score relative to overall mean")
+ax.set_xlabel("Agricultural Features")
+ax.tick_params(axis='x', rotation=30)
+ax.legend(title="Cluster")
 plt.tight_layout()
 
 prof_path = os.path.join(config.HIERARCHICAL_DIR, "cluster_crop_profile.png")
-plt.savefig(prof_path, dpi=300)
-# Also save as cluster_placement_profile.png for strict name parity with reference
-alias_prof_path = os.path.join(config.HIERARCHICAL_DIR, "cluster_placement_profile.png")
-plt.savefig(alias_prof_path, dpi=300)
-plt.close()
-print(f"Saved cluster profile plots: {prof_path}")
+fig.savefig(prof_path, dpi=150)
+plt.close(fig)
+print(f"Saved cluster profile plots: {prof_path}", flush=True)
 
 # 6. Report
 rep_path = os.path.join(config.HIERARCHICAL_DIR, "hierarchical_report.txt")

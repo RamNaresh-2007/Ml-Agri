@@ -5,9 +5,17 @@ Algorithms: K-Means (Elbow & Silhouette), Agglomerative Hierarchical Clustering 
 """
 
 import os
+import sys
+import types
+# Safety fallback for Windows Application Control policies on _vq
+if 'scipy.cluster.vq' not in sys.modules:
+    sys.modules['scipy.cluster.vq'] = types.ModuleType('scipy.cluster.vq')
+
 import json
 import pandas as pd
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib

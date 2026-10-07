@@ -1,5 +1,5 @@
 Model,R2_Score,RMSE,MAE,Training_Time_Sec
-Linear Regression (OLS),0.8105,389.6808,63.8846,0.08
-Ridge Regression,0.8104,389.7141,63.9466,0.5
-Decision Tree,0.9661,164.8431,11.7024,0.23
-Random Forest,0.9807,124.445,9.5319,1.87
+Linear Regression (OLS),0.8105,389.6808,63.8846,0.17
+Ridge Regression,0.8104,389.7141,63.9466,0.37
+Decision Tree,0.9661,164.8431,11.7024,0.31
+Random Forest,0.9808,124.1253,9.5127,2.37

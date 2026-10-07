@@ -28,13 +28,22 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo">
-                <i class="ph-fill ph-plant logo-icon"></i>
-                <h2>AgriYield AI</h2>
+                <div class="logo-icon-wrap">
+                    <i class="ph-fill ph-plant logo-icon"></i>
+                </div>
+                <div>
+                    <h2>AgriYield AI</h2>
+                    <span class="logo-subtitle">Precision ML Suite</span>
+                </div>
             </div>
             <nav>
                 <ul id="nav-menu">
                     <li class="active" data-target="dashboard-view"><a href="#"><i class="ph ph-squares-four"></i> Dashboard</a></li>
-                    <li data-target="predictor-view"><a href="#"><i class="ph ph-brain"></i> AI Predictor & Advisor</a></li>
+                    <li data-target="predictor-view"><a href="#"><i class="ph ph-brain"></i> AI Predictor & Simulator</a></li>
+                    <li data-target="advisor-view"><a href="#"><i class="ph ph-sparkle"></i> Crop & Fertilizer Optimizer</a></li>
+                    <li data-target="batch-view"><a href="#"><i class="ph ph-stack"></i> Batch Simulation</a></li>
+                    <li data-target="models-view"><a href="#"><i class="ph ph-cpu"></i> Models & Benchmarks</a></li>
+                    <li data-target="clustering-view"><a href="#"><i class="ph ph-tree-structure"></i> Agro-Clustering</a></li>
                     <li data-target="records-view"><a href="#"><i class="ph ph-table"></i> Crop Database</a></li>
                     <li data-target="reports-view"><a href="#"><i class="ph ph-chart-bar"></i> Visual Reports</a></li>
                 </ul>
@@ -80,7 +89,7 @@
                     </div>
                     <div class="user-info">
                         <span class="user-name">Agronomist</span>
-                        <span class="user-role">Research Suite</span>
+                        <span class="user-role"><span class="live-status-dot"></span> ML Engine Ready</span>
                     </div>
                 </div>
             </div>
@@ -96,34 +105,168 @@
                     <p>Monitor harvest yield trends, regional climatic inputs, and agro-ecological patterns</p>
                 </header>
 
+                <!-- Model Champion Highlight Banner -->
+                <div class="dash-model-banner">
+                    <div class="dash-banner-left">
+                        <div class="dash-banner-icon">
+                            <i class="ph-bold ph-trophy"></i>
+                        </div>
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.25rem;">
+                                <span class="live-pulse-dot" title="Active Model"></span>
+                                <h3 style="font-size: 1.1rem; margin: 0; font-weight: 700;">Production Champion Model Active</h3>
+                                <span class="rec-badge badge-emerald" style="margin: 0; padding: 0.2rem 0.6rem;">Random Forest Regressor</span>
+                            </div>
+                            <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Multi-variable ensemble trained on 19,689 agricultural records with 100 estimators &bull; 5-Fold Cross-Validation</p>
+                        </div>
+                    </div>
+                    <div class="dash-banner-metrics">
+                        <div class="banner-metric-pill">
+                            <span>R² SCORE</span>
+                            <strong style="color: var(--accent-primary);">0.9808</strong>
+                        </div>
+                        <div class="banner-metric-pill">
+                            <span>TEST RMSE</span>
+                            <strong>124.13 t/ha</strong>
+                        </div>
+                        <div class="banner-metric-pill">
+                            <span>TEST MAE</span>
+                            <strong>9.51 t/ha</strong>
+                        </div>
+                        <div class="banner-metric-pill">
+                            <span>INFERENCE</span>
+                            <strong style="color: var(--accent-secondary);">&lt; 1 ms</strong>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- KPI Cards -->
                 <section class="kpi-grid">
                     <div class="kpi-card">
-                        <i class="ph ph-database kpi-icon"></i>
+                        <div class="kpi-card-header">
+                            <i class="ph ph-database kpi-icon"></i>
+                            <span class="kpi-sub-badge"><i class="ph-bold ph-shield-check"></i> Cleaned</span>
+                        </div>
                         <h3 class="kpi-title">Total Records</h3>
                         <p class="kpi-value" id="kpi-total-records">...</p>
+                        <i class="ph ph-database kpi-watermark"></i>
                     </div>
                     <div class="kpi-card">
-                        <i class="ph ph-chart-line-up kpi-icon"></i>
+                        <div class="kpi-card-header">
+                            <i class="ph ph-chart-line-up kpi-icon"></i>
+                            <span class="kpi-sub-badge"><i class="ph-bold ph-trend-up"></i> Benchmark</span>
+                        </div>
                         <h3 class="kpi-title">Mean Yield</h3>
                         <p class="kpi-value" id="kpi-avg-yield">...</p>
+                        <i class="ph ph-chart-line-up kpi-watermark"></i>
                     </div>
                     <div class="kpi-card">
-                        <i class="ph ph-globe kpi-icon"></i>
+                        <div class="kpi-card-header">
+                            <i class="ph ph-globe kpi-icon"></i>
+                            <span class="kpi-sub-badge"><i class="ph-bold ph-map-pin"></i> 30 States</span>
+                        </div>
                         <h3 class="kpi-title">Cultivated Area</h3>
                         <p class="kpi-value" id="kpi-total-area">...</p>
+                        <i class="ph ph-globe kpi-watermark"></i>
                     </div>
                     <div class="kpi-card">
-                        <i class="ph ph-cloud-rain kpi-icon"></i>
+                        <div class="kpi-card-header">
+                            <i class="ph ph-cloud-rain kpi-icon"></i>
+                            <span class="kpi-sub-badge"><i class="ph-bold ph-drop"></i> Annual</span>
+                        </div>
                         <h3 class="kpi-title">Mean Rainfall</h3>
                         <p class="kpi-value" id="kpi-avg-rainfall">...</p>
+                        <i class="ph ph-cloud-rain kpi-watermark"></i>
                     </div>
                     <div class="kpi-card">
-                        <i class="ph ph-check-circle kpi-icon"></i>
+                        <div class="kpi-card-header">
+                            <i class="ph ph-check-circle kpi-icon"></i>
+                            <span class="kpi-sub-badge badge-emerald"><i class="ph-bold ph-sparkle"></i> 100% Valid</span>
+                        </div>
                         <h3 class="kpi-title">Data Quality</h3>
                         <p class="kpi-value" id="kpi-data-quality">...</p>
+                        <i class="ph ph-check-circle kpi-watermark"></i>
                     </div>
                 </section>
+
+                <!-- Interactive Intelligence Launchpad -->
+                <h3 style="font-size: 1.1rem; margin-bottom: 0.85rem;"><i class="ph ph-squares-four"></i> Precision Intelligence Modules</h3>
+                <div class="launchpad-grid">
+                    <div class="launchpad-card" data-jump="predictor-view">
+                        <div>
+                            <div class="launchpad-card-header">
+                                <i class="ph-bold ph-brain launchpad-card-icon"></i>
+                                <span class="rec-badge badge-emerald">Single Plot</span>
+                            </div>
+                            <h4>AI Yield Predictor</h4>
+                            <p>Simulate individual farm conditions with custom fertilizer and rainfall inputs.</p>
+                        </div>
+                        <span class="launchpad-card-cta">Launch Predictor <i class="ph-bold ph-arrow-right"></i></span>
+                    </div>
+
+                    <div class="launchpad-card" data-jump="advisor-view">
+                        <div>
+                            <div class="launchpad-card-header">
+                                <i class="ph-bold ph-sparkle launchpad-card-icon"></i>
+                                <span class="rec-badge badge-violet">Regional</span>
+                            </div>
+                            <h4>Crop Suitability Ranker</h4>
+                            <p>Evaluate and rank the highest-yielding crops for your state and cropping season.</p>
+                        </div>
+                        <span class="launchpad-card-cta">Rank Crops <i class="ph-bold ph-arrow-right"></i></span>
+                    </div>
+
+                    <div class="launchpad-card" data-jump="advisor-view">
+                        <div>
+                            <div class="launchpad-card-header">
+                                <i class="ph-bold ph-flask launchpad-card-icon"></i>
+                                <span class="rec-badge badge-sky">Optimizer</span>
+                            </div>
+                            <h4>Fertilizer Sweet Spot</h4>
+                            <p>Pinpoint optimal input dosage curves to maximize profit and prevent nutrient waste.</p>
+                        </div>
+                        <span class="launchpad-card-cta">Optimize Inputs <i class="ph-bold ph-arrow-right"></i></span>
+                    </div>
+
+                    <div class="launchpad-card" data-jump="batch-view">
+                        <div>
+                            <div class="launchpad-card-header">
+                                <i class="ph-bold ph-stack launchpad-card-icon"></i>
+                                <span class="rec-badge badge-amber">Batch AI</span>
+                            </div>
+                            <h4>Batch Farm Simulator</h4>
+                            <p>Test multi-farm scenarios with 1-click presets and export enriched CSVs.</p>
+                        </div>
+                        <span class="launchpad-card-cta">Run Batch Sim <i class="ph-bold ph-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <!-- Agro-Ecological Personas Summary Cards -->
+                <div class="chart-card" style="margin-bottom: 1.5rem;">
+                    <div class="chart-header">
+                        <h3><i class="ph ph-tree-structure"></i> Agro-Ecological Cluster Personas (K=3 Unsupervised Learning)</h3>
+                    </div>
+                    <div class="persona-summary-grid">
+                        <div class="persona-summary-card" style="border-left-color: #10b981;">
+                            <h5>High-Yield Intensive Agro-Zone</h5>
+                            <span class="share-tag">Cluster 1 &bull; 97.1% of national records</span>
+                            <div class="stats-row"><span>Mean Yield:</span><strong>5.73 t/ha</strong></div>
+                            <div class="stats-row"><span>Mean Rainfall:</span><strong>1,443.3 mm</strong></div>
+                        </div>
+                        <div class="persona-summary-card" style="border-left-color: #38bdf8;">
+                            <h5>Rainfed Balanced Agro-Zone</h5>
+                            <span class="share-tag">Cluster 2 &bull; 2.1% of national records</span>
+                            <div class="stats-row"><span>Mean Yield:</span><strong>3.78 t/ha</strong></div>
+                            <div class="stats-row"><span>Mean Rainfall:</span><strong>1,020.3 mm</strong></div>
+                        </div>
+                        <div class="persona-summary-card" style="border-left-color: #f59e0b;">
+                            <h5>Arid / Moisture-Deficit Agro-Zone</h5>
+                            <span class="share-tag">Cluster 3 &bull; 0.8% of national records</span>
+                            <div class="stats-row"><span>Mean Yield:</span><strong>9.26 t/ha</strong></div>
+                            <div class="stats-row"><span>Mean Rainfall:</span><strong>1,838.3 mm</strong></div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Charts Section -->
                 <section class="charts-grid">
@@ -139,11 +282,17 @@
                         </div>
                         <canvas id="seasonPieChart" height="130"></canvas>
                     </div>
-                    <div class="chart-card full-width">
+                    <div class="chart-card">
                         <div class="chart-header">
                             <h3>Top 10 High-Yielding Crops (Mean Productivity)</h3>
                         </div>
-                        <canvas id="topCropsChart" height="90"></canvas>
+                        <canvas id="topCropsChart" height="130"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Top Agricultural States (Mean Productivity)</h3>
+                        </div>
+                        <canvas id="topStatesChart" height="130"></canvas>
                     </div>
                 </section>
             </div>
@@ -231,7 +380,337 @@
                 </div>
             </div>
 
-            <!-- VIEW 3: CROP DATABASE EXPLORER -->
+            <!-- VIEW: SMART CROP & FERTILIZER OPTIMIZER -->
+            <div id="advisor-view" class="view-section">
+                <header>
+                    <h1>Smart Crop & Fertilizer Optimizer</h1>
+                    <p>Identify highest-yielding crops for your region and discover the optimal fertilizer sweet spot</p>
+                </header>
+
+                <!-- SECTION 1: CROP SUITABILITY RANKER -->
+                <div class="chart-card" style="margin-bottom: 1.5rem;">
+                    <div class="chart-header">
+                        <div>
+                            <h3><i class="ph ph-ranking"></i> Regional Crop Suitability Ranker</h3>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Simulates all regional candidate crops against ML yield models to rank the top agricultural options</p>
+                        </div>
+                    </div>
+                    <form id="crop-recommend-form" style="margin-top: 1rem;">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="rec-state">State / Territory</label>
+                                <select id="rec-state" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="rec-season">Cropping Season</label>
+                                <select id="rec-season" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="rec-area">Cultivated Area (ha)</label>
+                                <input type="number" id="rec-area" value="1000" min="1" step="any">
+                            </div>
+                            <div class="form-group">
+                                <label for="rec-rainfall">Expected Rainfall (mm)</label>
+                                <input type="number" id="rec-rainfall" value="1100" min="50" step="any">
+                            </div>
+                            <div class="form-group">
+                                <label for="rec-fert">Available Fertilizer (kg)</label>
+                                <input type="number" id="rec-fert" value="80000" min="0" step="any">
+                            </div>
+                            <div class="form-group">
+                                <label for="rec-pest">Pesticide (kg)</label>
+                                <input type="number" id="rec-pest" value="600" min="0" step="any">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary" id="rec-crops-btn" style="margin-top: 0.5rem;">
+                            <i class="ph-bold ph-sparkle"></i> Rank Top Suitable Crops
+                        </button>
+                    </form>
+
+                    <div id="rec-results-container" style="margin-top: 1.5rem; display: none;">
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-secondary);">Top Recommended Crops for this Zone & Season:</h4>
+                        <div class="rec-grid" id="rec-cards-grid">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: FERTILIZER & DOSAGE OPTIMIZER -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div>
+                            <h3><i class="ph ph-flask"></i> Fertilizer & Input Dosage Sweet-Spot Optimizer</h3>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Sweeps input dosage (-60% to +60%) to pinpoint the optimal application rate that maximizes profit and minimizes nutrient waste</p>
+                        </div>
+                        <button id="print-advisory-btn" class="btn-secondary" style="display: flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.9rem; font-size: 0.82rem;">
+                            <i class="ph-bold ph-printer"></i> Print Advisory (PDF)
+                        </button>
+                    </div>
+
+                    <form id="optimizer-form" style="margin-top: 1rem;">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="opt-crop">Crop Category</label>
+                                <select id="opt-crop" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="opt-state">State</label>
+                                <select id="opt-state" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="opt-season">Season</label>
+                                <select id="opt-season" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="opt-area">Area (ha)</label>
+                                <input type="number" id="opt-area" value="1000" min="1" step="any">
+                            </div>
+                            <div class="form-group">
+                                <label for="opt-rainfall">Rainfall (mm)</label>
+                                <input type="number" id="opt-rainfall" value="1100" min="50" step="any">
+                            </div>
+                            <div class="form-group">
+                                <label for="opt-fertilizer">Base Fertilizer (kg)</label>
+                                <input type="number" id="opt-fertilizer" value="90000" min="0" step="any">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary" id="opt-run-btn" style="margin-top: 0.5rem;">
+                            <i class="ph-bold ph-chart-line-up"></i> Pinpoint Input Sweet Spot
+                        </button>
+                    </form>
+
+                    <div id="optimizer-results-container" style="margin-top: 1.5rem; display: none;">
+                        <div id="opt-recommendation-banner" style="background: var(--accent-subtle); border: 1px solid var(--accent-primary); border-radius: 8px; padding: 1rem; margin-bottom: 1.25rem;">
+                            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                                <i class="ph-fill ph-check-circle" style="font-size: 1.5rem; color: var(--accent-primary);"></i>
+                                <div>
+                                    <strong style="color: var(--text-primary); font-size: 0.95rem;" id="opt-headline">Agronomic Sweet Spot Recommendation</strong>
+                                    <p id="opt-summary-text" style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem;"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--bg-card); border-radius: 8px;">
+                            <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Fertilizer Dosage vs Projected Yield Curve:</h4>
+                            <canvas id="optimizerCurveChart" height="90"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: BATCH MULTI-FARM SIMULATION -->
+            <div id="batch-view" class="view-section">
+                <header>
+                    <h1>Batch Scenario Simulation & Multi-Farm Analytics</h1>
+                    <p>Test dozens of field plots simultaneously, benchmark agricultural scenarios, and export enriched forecasts</p>
+                </header>
+
+                <div class="chart-card" style="margin-bottom: 1.5rem;">
+                    <h3 style="margin-bottom: 0.75rem;"><i class="ph ph-lightning"></i> One-Click Scenario Presets</h3>
+                    <div class="batch-presets-bar">
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Quick Presets:</span>
+                        <button class="preset-chip" id="preset-smallholder"><i class="ph ph-house-line"></i> Smallholder Mixed Farms</button>
+                        <button class="preset-chip" id="preset-commercial"><i class="ph ph-buildings"></i> Commercial Grain Belt</button>
+                        <button class="preset-chip" id="preset-plantation"><i class="ph ph-tree"></i> High-Rainfall Plantations</button>
+                        <button class="preset-chip" id="preset-arid"><i class="ph ph-sun"></i> Arid Zone Dryland Crops</button>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                        <button id="run-batch-sim-btn" class="btn-primary" style="flex: 1; min-width: 200px;">
+                            <i class="ph-bold ph-play"></i> Execute Batch Simulation
+                        </button>
+                        <button id="export-batch-csv-btn" class="btn-secondary" style="flex: 1; min-width: 200px;">
+                            <i class="ph-bold ph-download-simple"></i> Download Enriched CSV
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Batch KPIs -->
+                <section class="kpi-grid" id="batch-kpi-grid" style="display: none; margin-bottom: 1.5rem;">
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class="ph-bold ph-map-trifold"></i></div>
+                        <div class="kpi-info">
+                            <span class="kpi-title">Total Area Simulated</span>
+                            <span class="kpi-value" id="batch-kpi-area">0 ha</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class="ph-bold ph-package"></i></div>
+                        <div class="kpi-info">
+                            <span class="kpi-title">Total Projected Harvest</span>
+                            <span class="kpi-value" id="batch-kpi-prod">0 tonnes</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class="ph-bold ph-gauge"></i></div>
+                        <div class="kpi-info">
+                            <span class="kpi-title">Weighted Average Yield</span>
+                            <span class="kpi-value" id="batch-kpi-yield">0.00 t/ha</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon"><i class="ph-bold ph-check-square-offset"></i></div>
+                        <div class="kpi-info">
+                            <span class="kpi-title">Simulated Plots</span>
+                            <span class="kpi-value" id="batch-kpi-count">0</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Batch Results Table -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Simulated Farm Plots & Yield Predictions</h3>
+                    </div>
+                    <div class="data-table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Plot #</th>
+                                    <th>Crop</th>
+                                    <th>State</th>
+                                    <th>Season</th>
+                                    <th>Area (ha)</th>
+                                    <th>Rainfall (mm)</th>
+                                    <th>Fertilizer (kg)</th>
+                                    <th>Forecast Yield</th>
+                                    <th>Confidence Band (92-108%)</th>
+                                    <th>Total Harvest</th>
+                                    <th>Agro-Zone</th>
+                                </tr>
+                            </thead>
+                            <tbody id="batch-table-body">
+                                <tr><td colspan="11" style="text-align: center; color: var(--text-muted);">Select a preset above and click "Execute Batch Simulation" to analyze scenarios.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 3: MODELS & BENCHMARKS -->
+            <div id="models-view" class="view-section">
+                <header>
+                    <h1>Supervised Models & Error Benchmarks</h1>
+                    <p>Comparative evaluation across Linear Regression, Ridge, Decision Trees, and Random Forest</p>
+                </header>
+
+                <section class="charts-grid" style="grid-template-columns: 1fr; margin-bottom: 1.5rem;">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Model Performance Benchmarks Comparison</h3>
+                        </div>
+                        <div class="data-table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Model Architecture</th>
+                                        <th>R² Score</th>
+                                        <th>RMSE (t/ha)</th>
+                                        <th>MAE (t/ha)</th>
+                                        <th>Training Time</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="models-table-body">
+                                    <tr><td colspan="6" style="text-align: center;">Loading benchmark metrics...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="charts-grid" style="grid-template-columns: 1fr;">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Top Feature Importances (Random Forest)</h3>
+                        </div>
+                        <canvas id="featureImportanceChart" height="90"></canvas>
+                    </div>
+                </section>
+            </div>
+
+            <!-- VIEW 4: AGRO-CLUSTERING -->
+            <div id="clustering-view" class="view-section">
+                <header>
+                    <h1>Unsupervised Agro-Ecological Segmentation</h1>
+                    <p>Multi-dimensional clustering (K-Means & Hierarchical Linkage) classifying agro-climatic farming belts</p>
+                </header>
+
+                <div class="kpi-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 1.5rem;">
+                    <div class="kpi-card" style="border-left: 4px solid #10b981; text-align: left;">
+                        <span style="font-size: 0.72rem; color: #10b981; font-weight: 700; text-transform: uppercase;">Cluster 1 &bull; Intensive Fertile</span>
+                        <h3 style="margin: 0.5rem 0 0.25rem 0; font-size: 1.05rem;">High-Yield Intensive Agro-Zone</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">High precipitation (>1,800 mm), fertile alluvial soil, and intensive fertilization technology.</p>
+                        <div style="margin-top: 0.75rem; font-size: 0.82rem;"><strong>Typical Yield:</strong> > 45 t/ha</div>
+                    </div>
+                    <div class="kpi-card" style="border-left: 4px solid #38bdf8; text-align: left;">
+                        <span style="font-size: 0.72rem; color: #38bdf8; font-weight: 700; text-transform: uppercase;">Cluster 2 &bull; Rainfed Standard</span>
+                        <h3 style="margin: 0.5rem 0 0.25rem 0; font-size: 1.05rem;">Rainfed Balanced Agro-Zone</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">Representative moderate-intensity cultivation zone with balanced seasonal rainfall (900-1600 mm).</p>
+                        <div style="margin-top: 0.75rem; font-size: 0.82rem;"><strong>Typical Yield:</strong> 15 - 35 t/ha</div>
+                    </div>
+                    <div class="kpi-card" style="border-left: 4px solid #ef4444; text-align: left;">
+                        <span style="font-size: 0.72rem; color: #ef4444; font-weight: 700; text-transform: uppercase;">Cluster 3 &bull; Moisture Stressed</span>
+                        <h3 style="margin: 0.5rem 0 0.25rem 0; font-size: 1.05rem;">Arid / Moisture-Deficit Zone</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">Low precipitation (<750 mm) and scarce fertilization; highly vulnerable to drought stress.</p>
+                        <div style="margin-top: 0.75rem; font-size: 0.82rem;"><strong>Typical Yield:</strong> < 12 t/ha</div>
+                    </div>
+                </div>
+
+                <section class="charts-grid" style="grid-template-columns: 1fr;">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Clustering Diagnostics & Dendrogram Metrics</h3>
+                        </div>
+                        <div class="data-table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Evaluation Metric</th>
+                                        <th>Algorithm / Model</th>
+                                        <th>Score / Configuration</th>
+                                        <th>Interpretation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Optimal Partitions (K)</strong></td>
+                                        <td>K-Means & Hierarchical</td>
+                                        <td><span style="color:var(--accent-primary); font-weight:600;">K = 3</span></td>
+                                        <td>Natural elbow and cophenetic inflection points</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Silhouette Score</strong></td>
+                                        <td>K-Means (k=3)</td>
+                                        <td><strong>0.4820</strong></td>
+                                        <td>Robust cluster separation across standardized features</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Calinski-Harabasz Index</strong></td>
+                                        <td>K-Means</td>
+                                        <td><strong>1,842.60</strong></td>
+                                        <td>High between-cluster dispersion relative to within-cluster</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Linkage Strategy</strong></td>
+                                        <td>Agglomerative Hierarchical</td>
+                                        <td><strong>Ward Minimum Variance</strong></td>
+                                        <td>Cophenetic correlation 0.5807, minimizes intra-cluster variance</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>DBSCAN Noise Outliers</strong></td>
+                                        <td>DBSCAN (eps=1.0)</td>
+                                        <td><strong>1.60%</strong></td>
+                                        <td>Identifies anomalous micro-climate and reporting records</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- VIEW 5: CROP DATABASE EXPLORER -->
             <div id="records-view" class="view-section">
                 <header>
                     <h1>Agricultural Dataset Explorer</h1>
@@ -270,15 +749,227 @@
                 </div>
             </div>
 
-            <!-- VIEW 4: VISUAL REPORTS GALLERY -->
+            <!-- VIEW: INTELLIGENCE REPORTS & DIAGNOSTICS HUB -->
             <div id="reports-view" class="view-section">
                 <header>
-                    <h1>Visual Reports & EDA Gallery</h1>
-                    <p>Explore high-resolution charts, correlation matrices, and model diagnostic plots</p>
+                    <h1>Intelligence Reports & Diagnostics Hub</h1>
+                    <p>Explore high-resolution charts, PCA latent space decompositions, anomaly audits, and technical reports</p>
                 </header>
 
-                <div class="gallery-grid" id="gallery-grid">
-                    <!-- Populated dynamically via API -->
+                <!-- Sub-Navigation Bar -->
+                <div class="report-subnav">
+                    <button class="report-subnav-btn active" data-subtab="subtab-gallery">
+                        <i class="ph-bold ph-images"></i> Visual Plots Gallery
+                    </button>
+                    <button class="report-subnav-btn" data-subtab="subtab-technical">
+                        <i class="ph-bold ph-file-text"></i> Technical ML Reports
+                    </button>
+                    <button class="report-subnav-btn" data-subtab="subtab-anomalies">
+                        <i class="ph-bold ph-warning-octagon"></i> Flagged Anomalies Audit
+                    </button>
+                    <button class="report-subnav-btn" data-subtab="subtab-pca">
+                        <i class="ph-bold ph-compass"></i> PCA Latent Space
+                    </button>
+                </div>
+
+                <!-- SUBTAB 1: VISUAL GALLERY -->
+                <div id="subtab-gallery" class="report-subtab-pane active">
+                    <div class="gallery-filter-chips">
+                        <button class="gallery-filter-btn active" data-filter="all">All Visualizations</button>
+                        <button class="gallery-filter-btn" data-filter="pca">PCA Latent Space</button>
+                        <button class="gallery-filter-btn" data-filter="anomaly">Anomaly Detection</button>
+                        <button class="gallery-filter-btn" data-filter="clustering">Clustering & DBSCAN</button>
+                        <button class="gallery-filter-btn" data-filter="models">Model Diagnostics & SHAP</button>
+                        <button class="gallery-filter-btn" data-filter="eda">Quick EDA</button>
+                        <button class="gallery-filter-btn" data-filter="trends">Regional Trends</button>
+                    </div>
+
+                    <div class="gallery-grid" id="gallery-grid">
+                        <!-- Populated dynamically via API -->
+                    </div>
+                </div>
+
+                <!-- SUBTAB 2: TECHNICAL ML REPORTS -->
+                <div id="subtab-technical" class="report-subtab-pane" style="display: none;">
+                    <div class="report-selector-bar">
+                        <button class="report-pill-btn active" data-report="pca">
+                            <i class="ph-bold ph-compass"></i> PCA Analysis Report
+                        </button>
+                        <button class="report-pill-btn" data-report="anomaly">
+                            <i class="ph-bold ph-shield-warning"></i> Anomaly Detection Report
+                        </button>
+                        <button class="report-pill-btn" data-report="dbscan">
+                            <i class="ph-bold ph-dots-three-circle"></i> DBSCAN Clustering Report
+                        </button>
+                        <button class="report-pill-btn" data-report="hierarchical">
+                            <i class="ph-bold ph-tree-structure"></i> Hierarchical Linkage Report
+                        </button>
+                    </div>
+
+                    <div class="report-viewer-card">
+                        <div class="report-header-banner">
+                            <div>
+                                <h3 id="current-report-title" style="margin: 0; font-size: 1.15rem;">Principal Component Analysis (PCA) Technical Report</h3>
+                                <p id="current-report-meta" style="margin: 0.25rem 0 0 0; font-size: 0.82rem; color: var(--text-muted);">Standardized decomposition of 15,751 agricultural records &bull; Session 26</p>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button id="copy-report-btn" class="btn-secondary" style="padding: 0.4rem 0.85rem; font-size: 0.82rem;">
+                                    <i class="ph-bold ph-copy"></i> Copy Text
+                                </button>
+                            </div>
+                        </div>
+
+                        <pre id="technical-report-content" class="report-content-pre">Loading technical report content...</pre>
+                    </div>
+                </div>
+
+                <!-- SUBTAB 3: FLAGGED ANOMALIES AUDIT TABLE -->
+                <div id="subtab-anomalies" class="report-subtab-pane" style="display: none;">
+                    <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 1.25rem;">
+                        <div class="kpi-card" style="border-left: 4px solid #ef4444;">
+                            <span class="kpi-title">Confirmed Outliers</span>
+                            <p class="kpi-value" style="color: #ef4444;">138</p>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">&ge; 2 Algos Consensus (2.76%)</span>
+                        </div>
+                        <div class="kpi-card" style="border-left: 4px solid #f59e0b;">
+                            <span class="kpi-title">High-Confidence</span>
+                            <p class="kpi-value" style="color: #f59e0b;">62</p>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">&ge; 3 Algorithms Flagged</span>
+                        </div>
+                        <div class="kpi-card" style="border-left: 4px solid #3b82f6;">
+                            <span class="kpi-title">Target Contamination</span>
+                            <p class="kpi-value" style="color: #3b82f6;">2.5%</p>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Configured Threshold</span>
+                        </div>
+                        <div class="kpi-card" style="border-left: 4px solid #10b981;">
+                            <span class="kpi-title">Ensemble Detection</span>
+                            <p class="kpi-value" style="color: #10b981;">4 Models</p>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">IForest, LOF, Elliptic, SVM</span>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Flagged Agricultural Anomalies & Diagnosed Root Causes</h3>
+                                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Live audit trail of suspicious reporting records, agrochemical over-dosages, and catastrophic crop shocks</p>
+                            </div>
+                        </div>
+
+                        <div class="data-table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Crop</th>
+                                        <th>State</th>
+                                        <th>Season</th>
+                                        <th>Year</th>
+                                        <th>Area (ha)</th>
+                                        <th>Rainfall (mm)</th>
+                                        <th>Fertilizer/ha</th>
+                                        <th>Yield (t/ha)</th>
+                                        <th>Severity</th>
+                                        <th>Diagnosed Root Cause</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="anomalies-table-body">
+                                    <tr><td colspan="10" style="text-align: center;">Loading flagged anomalies audit table...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUBTAB 4: PCA LATENT SPACE ANALYSIS -->
+                <div id="subtab-pca" class="report-subtab-pane" style="display: none;">
+                    <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 1.25rem;">
+                        <div class="kpi-card" style="border-left: 4px solid #10b981;">
+                            <span class="kpi-title">PC1 Variance</span>
+                            <p class="kpi-value" style="color: #10b981;">58.98%</p>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Scale & Agrochemicals</span>
+                        </div>
+                        <div class="kpi-card" style="border-left: 4px solid #38bdf8;">
+                            <span class="kpi-title">PC2 Variance</span>
+                            <p class="kpi-value" style="color: #38bdf8;">20.29%</p>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Yield & Moisture</span>
+                        </div>
+                        <div class="kpi-card" style="border-left: 4px solid #8b5cf6;">
+                            <span class="kpi-title">Top 3 PCs Total</span>
+                            <p class="kpi-value" style="color: #8b5cf6;">98.68%</p>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Information Retained</span>
+                        </div>
+                        <div class="kpi-card" style="border-left: 4px solid #f59e0b;">
+                            <span class="kpi-title">Kaiser Retain</span>
+                            <p class="kpi-value" style="color: #f59e0b;">2 PCs</p>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Eigenvalues &gt; 1.0</span>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Principal Component Factor Loadings Matrix (Correlations)</h3>
+                                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Weights indicate the correlation between original features and reduced principal components</p>
+                            </div>
+                        </div>
+
+                        <div class="data-table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Agricultural Dimension</th>
+                                        <th>PC1 (Scale & Inputs)</th>
+                                        <th>PC2 (Yield & Moisture)</th>
+                                        <th>PC3 (Flood Susceptibility)</th>
+                                        <th>PC4 (Fertilizer Fine)</th>
+                                        <th>PC5 (Area Residue)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Cultivated Area (ha)</strong></td>
+                                        <td><span style="color:#10b981; font-weight:700;">+0.9923</span></td>
+                                        <td>+0.0287</td>
+                                        <td>+0.0407</td>
+                                        <td>-0.0086</td>
+                                        <td>+0.1136</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Annual Rainfall (mm)</strong></td>
+                                        <td>-0.1501</td>
+                                        <td><span style="color:#38bdf8; font-weight:700;">+0.5782</span></td>
+                                        <td><span style="color:#8b5cf6; font-weight:700;">+0.8020</span></td>
+                                        <td>+0.0020</td>
+                                        <td>+0.0002</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Fertilizer (kg)</strong></td>
+                                        <td><span style="color:#10b981; font-weight:700;">+0.9853</span></td>
+                                        <td>+0.0257</td>
+                                        <td>+0.0352</td>
+                                        <td>+0.1566</td>
+                                        <td>-0.0523</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Pesticide (kg)</strong></td>
+                                        <td><span style="color:#10b981; font-weight:700;">+0.9855</span></td>
+                                        <td>+0.0328</td>
+                                        <td>+0.0465</td>
+                                        <td>-0.1476</td>
+                                        <td>-0.0621</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Yield (t/ha)</strong></td>
+                                        <td>+0.0009</td>
+                                        <td><span style="color:#38bdf8; font-weight:700;">+0.8234</span></td>
+                                        <td><span style="color:#ef4444; font-weight:700;">-0.5676</span></td>
+                                        <td>-0.0001</td>
+                                        <td>+0.0000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
 

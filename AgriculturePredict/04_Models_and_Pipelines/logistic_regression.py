@@ -62,9 +62,7 @@ if "Annual_Rainfall" in train.columns:
     plt.title("Rainfall vs High Yield - Empirical S-Curve", fontsize=13, fontweight="bold")
     plt.grid(True, linestyle="--", alpha=0.6)
     plt.tight_layout()
-    plt.savefig(os.path.join(config.LOGISTIC_DIR, "rainfall_vs_high_yield_curve.png"), dpi=300)
-    # alias for exact placement parity
-    plt.savefig(os.path.join(config.LOGISTIC_DIR, "cgpa_vs_placement_curve.png"), dpi=300)
+    plt.savefig(os.path.join(config.LOGISTIC_DIR, "rainfall_vs_high_yield_curve.png"), dpi=150)
     plt.close()
 
 # 3. Sigmoid Function Illustration
@@ -79,7 +77,7 @@ plt.xlabel("Linear Predictor z = w^T x + b")
 plt.ylabel("P(Y = 1 | x)")
 plt.legend()
 plt.tight_layout()
-plt.savefig(os.path.join(config.LOGISTIC_DIR, "sigmoid_function.png"), dpi=300)
+plt.savefig(os.path.join(config.LOGISTIC_DIR, "sigmoid_function.png"), dpi=150)
 plt.close()
 
 # 4. Standardize & Fit Logistic Regression
@@ -121,7 +119,7 @@ if len(feature_cols) >= 2:
     plt.xlabel(f"{f1} (standardized)")
     plt.ylabel(f"{f2} (standardized)")
     plt.tight_layout()
-    plt.savefig(os.path.join(config.LOGISTIC_DIR, "decision_boundary.png"), dpi=300)
+    plt.savefig(os.path.join(config.LOGISTIC_DIR, "decision_boundary.png"), dpi=150)
     plt.close()
 
 # 6. Report

@@ -1,0 +1,47 @@
+=================================================================
+PRINCIPAL COMPONENT ANALYSIS (PCA) - TECHNICAL REPORT
+=================================================================
+
+Dataset Size: 15,751 agricultural records
+Original Feature Count: 5 features
+Analyzed Features: Area, Annual_Rainfall, Fertilizer, Pesticide, Yield
+
+1. EIGENVALUE & VARIANCE DECOMPOSITION:
+   PC1: Eigenvalue=2.9492 | Variance=58.98% | Cumulative=58.98% [Kaiser Criterion: Retain]
+   PC2: Eigenvalue=1.0148 | Variance=20.29% | Cumulative=79.28% [Kaiser Criterion: Retain]
+   PC3: Eigenvalue=0.9704 | Variance=19.41% | Cumulative=98.68%
+   PC4: Eigenvalue=0.0464 | Variance=0.93% | Cumulative=99.61%
+   PC5: Eigenvalue=0.0195 | Variance=0.39% | Cumulative=100.00%
+
+2. DIMENSIONALITY REDUCTION THRESHOLDS:
+   - Kaiser Criterion (Eigenvalue > 1.0): 2 components
+   - Components for 80% Variance: 3 components (98.7%)
+   - Components for 90% Variance: 3 components (98.7%)
+   - Components for 95% Variance: 3 components (98.7%)
+
+3. FACTOR LOADINGS MATRIX (Feature Correlations with PCs):
+                    PC1     PC2     PC3     PC4     PC5
+Area             0.9923  0.0287  0.0407 -0.0086  0.1136
+Annual_Rainfall -0.1501  0.5782  0.8020  0.0020  0.0002
+Fertilizer       0.9853  0.0257  0.0352  0.1566 -0.0523
+Pesticide        0.9855  0.0328  0.0465 -0.1476 -0.0621
+Yield            0.0009  0.8234 -0.5676 -0.0001  0.0000
+
+4. AGRONOMIC INTERPRETATION:
+   * PC1 (59.0% var): Primarily driven positively by 'Area' (+0.99)
+   * PC2 (20.3% var): Primarily driven positively by 'Yield' (+0.82)
+   * PC3 (19.4% var): Primarily driven positively by 'Annual_Rainfall' (+0.80) with counter-balance from 'Yield' (-0.57)
+   * PC4 (0.9% var): Primarily driven positively by 'Fertilizer' (+0.16)
+   * PC5 (0.4% var): Primarily driven positively by 'Area' (+0.11)
+
+5. RECONSTRUCTION ERROR (MSE):
+   - Retaining 1 components: MSE = 0.4102
+   - Retaining 2 components: MSE = 0.2072
+   - Retaining 3 components: MSE = 0.0132
+   - Retaining 4 components: MSE = 0.0039
+   - Retaining 5 components: MSE = 0.0000
+
+6. DOWNSTREAM REGRESSION VALIDATION:
+   - OLS Linear Model with all original features: R2 = 0.0005
+   - OLS Linear Model with top 2 PCA components: R2 = 0.0004
+=================================================================

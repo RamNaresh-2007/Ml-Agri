@@ -1,0 +1,193 @@
+{
+  "total_evaluated": 5000,
+  "contamination_rate": 0.025,
+  "algorithm_flags": {
+    "Isolation Forest": 125,
+    "Local Outlier Factor": 125,
+    "Elliptic Envelope": 125,
+    "One-Class SVM": 125,
+    "Ensemble (>= 2 Algos)": 138
+  },
+  "breakdown": {
+    "normal_records": 4710,
+    "high_confidence_anomalies": 62,
+    "moderate_anomalies": 76,
+    "confirmed_anomalies_total": 138,
+    "anomaly_percentage": 2.76
+  },
+  "mean_metrics": {
+    "normal": {
+      "Area": 108969.6,
+      "Annual_Rainfall": 1417.44,
+      "Fertilizer_per_Ha": 137.24,
+      "Pesticide_per_Ha": 0.28,
+      "Yield": 4.27
+    },
+    "anomalous": {
+      "Area": 2331587.12,
+      "Annual_Rainfall": 1489.27,
+      "Fertilizer_per_Ha": 131.5,
+      "Pesticide_per_Ha": 0.26,
+      "Yield": 2391.08
+    },
+    "deviation_pct": {
+      "Area": 2039.7,
+      "Annual_Rainfall": 5.1,
+      "Fertilizer_per_Ha": -4.2,
+      "Pesticide_per_Ha": -7.2,
+      "Yield": 55893.3
+    }
+  },
+  "top_anomalous_records": [
+    {
+      "Crop": "Rice",
+      "State": "Punjab",
+      "Season": "Kharif     ",
+      "Crop_Year": 2008,
+      "Area": 2735000.0,
+      "Annual_Rainfall": 691.3,
+      "Fertilizer": 391214400.0,
+      "Pesticide": 246150.0,
+      "Yield": 3.9855,
+      "Fertilizer_per_Ha": 143.04,
+      "Anomaly_Category": "High-Confidence Anomaly",
+      "Ensemble_Anomaly_Count": 3,
+      "Root_Cause": "Multivariate Latent Discrepancy"
+    },
+    {
+      "Crop": "Rice",
+      "State": "Jharkhand",
+      "Season": "Winter     ",
+      "Crop_Year": 2008,
+      "Area": 1008437.16,
+      "Annual_Rainfall": 1295.2,
+      "Fertilizer": 144246851.4,
+      "Pesticide": 90759.3444,
+      "Yield": 1.39125,
+      "Fertilizer_per_Ha": 143.04000003331888,
+      "Anomaly_Category": "Moderate Anomaly",
+      "Ensemble_Anomaly_Count": 2,
+      "Root_Cause": "Multivariate Latent Discrepancy"
+    },
+    {
+      "Crop": "Jowar",
+      "State": "Maharashtra",
+      "Season": "Rabi       ",
+      "Crop_Year": 2004,
+      "Area": 3223200.0,
+      "Annual_Rainfall": 1052.0,
+      "Fertilizer": 349201488.0,
+      "Pesticide": 676872.0,
+      "Yield": 0.674615385,
+      "Fertilizer_per_Ha": 108.34,
+      "Anomaly_Category": "Moderate Anomaly",
+      "Ensemble_Anomaly_Count": 2,
+      "Root_Cause": "Multivariate Latent Discrepancy"
+    },
+    {
+      "Crop": "Cotton(lint)",
+      "State": "Maharashtra",
+      "Season": "Kharif     ",
+      "Crop_Year": 2011,
+      "Area": 4166700.0,
+      "Annual_Rainfall": 1174.095455,
+      "Fertilizer": 698005584.0,
+      "Pesticide": 1375011.0,
+      "Yield": 1.7416,
+      "Fertilizer_per_Ha": 167.52,
+      "Anomaly_Category": "High-Confidence Anomaly",
+      "Ensemble_Anomaly_Count": 3,
+      "Root_Cause": "Multivariate Latent Discrepancy"
+    },
+    {
+      "Crop": "Tobacco",
+      "State": "Meghalaya",
+      "Season": "Rabi       ",
+      "Crop_Year": 2018,
+      "Area": 802.0,
+      "Annual_Rainfall": 5649.1,
+      "Fertilizer": 130084.4,
+      "Pesticide": 280.7,
+      "Yield": 1.055,
+      "Fertilizer_per_Ha": 162.2,
+      "Anomaly_Category": "Moderate Anomaly",
+      "Ensemble_Anomaly_Count": 2,
+      "Root_Cause": "Extreme Flood / Waterlogging"
+    },
+    {
+      "Crop": "Soyabean",
+      "State": "Madhya Pradesh",
+      "Season": "Kharif     ",
+      "Crop_Year": 2004,
+      "Area": 4580458.0,
+      "Annual_Rainfall": 895.7,
+      "Fertilizer": 496246819.7,
+      "Pesticide": 961896.18,
+      "Yield": 0.821875,
+      "Fertilizer_per_Ha": 108.33999999563362,
+      "Anomaly_Category": "High-Confidence Anomaly",
+      "Ensemble_Anomaly_Count": 3,
+      "Root_Cause": "Multivariate Latent Discrepancy"
+    },
+    {
+      "Crop": "Wheat",
+      "State": "Madhya Pradesh",
+      "Season": "Rabi       ",
+      "Crop_Year": 2003,
+      "Area": 4078974.0,
+      "Annual_Rainfall": 1163.0,
+      "Fertilizer": 403736846.5,
+      "Pesticide": 978953.76,
+      "Yield": 1.797916667,
+      "Fertilizer_per_Ha": 98.9799999950968,
+      "Anomaly_Category": "Moderate Anomaly",
+      "Ensemble_Anomaly_Count": 2,
+      "Root_Cause": "Multivariate Latent Discrepancy"
+    },
+    {
+      "Crop": "Coconut ",
+      "State": "Goa",
+      "Season": "Whole Year ",
+      "Crop_Year": 2019,
+      "Area": 26542.0,
+      "Annual_Rainfall": 4489.5,
+      "Fertilizer": 4558853.92,
+      "Pesticide": 9820.54,
+      "Yield": 6359.69,
+      "Fertilizer_per_Ha": 171.76,
+      "Anomaly_Category": "High-Confidence Anomaly",
+      "Ensemble_Anomaly_Count": 3,
+      "Root_Cause": "Extreme Flood / Waterlogging & Suspicious Yield Outlier (Reporting Error)"
+    },
+    {
+      "Crop": "Coconut ",
+      "State": "Karnataka",
+      "Season": "Whole Year ",
+      "Crop_Year": 2007,
+      "Area": 405328.0,
+      "Annual_Rainfall": 1323.3,
+      "Fertilizer": 54070755.2,
+      "Pesticide": 64852.48,
+      "Yield": 5079.793793,
+      "Fertilizer_per_Ha": 133.4,
+      "Anomaly_Category": "High-Confidence Anomaly",
+      "Ensemble_Anomaly_Count": 3,
+      "Root_Cause": "Suspicious Yield Outlier (Reporting Error)"
+    },
+    {
+      "Crop": "Rice",
+      "State": "Bihar",
+      "Season": "Winter     ",
+      "Crop_Year": 2002,
+      "Area": 2881073.0,
+      "Annual_Rainfall": 1105.8,
+      "Fertilizer": 272751180.9,
+      "Pesticide": 720268.25,
+      "Yield": 1.345945946,
+      "Fertilizer_per_Ha": 94.66999999652906,
+      "Anomaly_Category": "Moderate Anomaly",
+      "Ensemble_Anomaly_Count": 2,
+      "Root_Cause": "Multivariate Latent Discrepancy"
+    }
+  ]
+}

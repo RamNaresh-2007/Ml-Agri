@@ -98,6 +98,15 @@ class TestAgriYieldApp(unittest.TestCase):
         self.assertIn("predicted_yield_t_ha", data)
         self.assertGreater(data["predicted_yield_t_ha"], 0)
 
+        # Warm prediction should be virtually instantaneous thanks to in-memory model cache
+        import time
+        t0 = time.time()
+        res2 = self.client.post("/api/predict", json=payload)
+        latency = time.time() - t0
+        self.assertEqual(res2.status_code, 200)
+        self.assertLess(latency, 1.0, f"Cached prediction latency ({latency:.3f}s) exceeded 1.0s threshold")
+
+
     def test_08_api_plots_list(self):
         """Verify /api/plots-list discovers EDA and model visual plots."""
         res = self.client.get("/api/plots-list")
@@ -106,6 +115,131 @@ class TestAgriYieldApp(unittest.TestCase):
         self.assertIsInstance(plots, list)
         self.assertGreater(len(plots), 0)
 
+    def test_09_api_models_comparison(self):
+        """Verify /api/models/comparison returns benchmark metrics."""
+        res = self.client.get("/api/models/comparison")
+        self.assertEqual(res.status_code, 200)
+        models = res.get_json()
+        self.assertIsInstance(models, list)
+        self.assertGreater(len(models), 0)
+        self.assertIn("Model", models[0])
+        self.assertIn("R2_Score", models[0])
+
+    def test_10_api_feature_importances(self):
+        """Verify /api/models/feature-importances returns ranking features."""
+        res = self.client.get("/api/models/feature-importances")
+        self.assertEqual(res.status_code, 200)
+        features = res.get_json()
+        self.assertIsInstance(features, list)
+        self.assertGreater(len(features), 0)
+        self.assertIn("Feature", features[0])
+
+    def test_11_api_clustering(self):
+        """Verify /api/clustering returns persona archetypes."""
+        res = self.client.get("/api/clustering")
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertEqual(data["status"], "success")
+        self.assertIn("personas", data)
+
+    def test_12_api_recommend_crops(self):
+        """Verify /api/recommend-crops returns ranked suitable crops."""
+        payload = {
+            "state": "Punjab",
+            "season": "Kharif",
+            "area": 1000.0,
+            "annual_rainfall": 1200.0,
+            "fertilizer": 80000.0,
+            "pesticide": 600.0
+        }
+        res = self.client.post("/api/recommend-crops", json=payload)
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertEqual(data["status"], "success")
+        self.assertIn("top_recommendations", data)
+        self.assertGreater(len(data["top_recommendations"]), 0)
+        self.assertIn("badge", data["top_recommendations"][0])
+
+    def test_13_api_optimize_inputs(self):
+        """Verify /api/optimize-inputs computes fertilizer sweet spot and curve."""
+        payload = {
+            "crop": "Wheat",
+            "state": "Punjab",
+            "season": "Rabi",
+            "area": 1000.0,
+            "annual_rainfall": 1100.0,
+            "fertilizer": 90000.0,
+            "pesticide": 700.0
+        }
+        res = self.client.post("/api/optimize-inputs", json=payload)
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertEqual(data["status"], "success")
+        self.assertIn("recommended_fertilizer_kg", data)
+        self.assertIn("response_curve", data)
+        self.assertEqual(len(data["response_curve"]), 7)
+
+    def test_14_api_batch_predict(self):
+        """Verify /api/batch-predict handles multi-farm simulation."""
+        payload = {
+            "records": [
+                {"crop": "Rice", "state": "Punjab", "season": "Kharif", "area": 500, "annual_rainfall": 1200, "fertilizer": 40000, "pesticide": 300},
+                {"crop": "Wheat", "state": "Haryana", "season": "Rabi", "area": 800, "annual_rainfall": 900, "fertilizer": 65000, "pesticide": 450}
+            ]
+        }
+        res = self.client.post("/api/batch-predict", json=payload)
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertEqual(data["status"], "success")
+        self.assertEqual(data["count"], 2)
+        self.assertIn("kpis", data)
+        self.assertIn("results", data)
+        self.assertEqual(len(data["results"]), 2)
+
+    def test_15_api_advisory_report(self):
+        """Verify /api/advisory-report generates structured farm report data."""
+        payload = {
+            "crop": "Rice",
+            "state": "Punjab",
+            "season": "Kharif",
+            "area": 1000.0,
+            "annual_rainfall": 1200.0,
+            "fertilizer": 80000.0,
+            "pesticide": 600.0
+        }
+        res = self.client.post("/api/advisory-report", json=payload)
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertEqual(data["status"], "success")
+        self.assertIn("report_id", data)
+        self.assertIn("agronomic_advisory", data)
+
+    def test_16_api_pca(self):
+        """Verify /api/pca returns PCA variance and decomposition data."""
+        res = self.client.get("/api/pca")
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertEqual(data["status"], "success")
+        self.assertIn("pca", data)
+
+    def test_17_api_anomaly(self):
+        """Verify /api/anomaly returns outlier statistics and diagnostics."""
+        res = self.client.get("/api/anomaly")
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertEqual(data["status"], "success")
+        self.assertIn("anomaly", data)
+
+    def test_18_pca_anomaly_scripts_exist(self):
+        """Verify PCA and Anomaly Detection script files exist in 04_Models_and_Pipelines."""
+        models_dir = BASE_DIR / "04_Models_and_Pipelines"
+        self.assertTrue((models_dir / "pca_analysis.py").is_file(), "pca_analysis.py missing")
+        self.assertTrue((models_dir / "26_pca.py").is_file(), "26_pca.py missing")
+        self.assertTrue((models_dir / "anomaly_detection.py").is_file(), "anomaly_detection.py missing")
+        self.assertTrue((models_dir / "27_anomaly_detection.py").is_file(), "27_anomaly_detection.py missing")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+

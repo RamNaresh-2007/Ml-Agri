@@ -1,6 +1,8 @@
+import os
 import pandas as pd
 
-df = pd.read_csv("iris.csv")
+csv_path = os.path.join(os.path.dirname(__file__), "Iris.csv")
+df = pd.read_csv(csv_path)
 
 print(df.head())
 print(df.info())

@@ -23,9 +23,9 @@ if "Production" in df.columns:
     print("Dropping 'Production' column to strictly prevent target leakage...")
     df = df.drop(columns=["Production"])
 
-# 2. Strip whitespace from text columns
+# 2. Strip whitespace from text columns (vectorized)
 for col in df.select_dtypes(include=['object', 'string']).columns:
-    df[col] = df[col].apply(lambda s: s.strip() if isinstance(s, str) else s)
+    df[col] = df[col].astype(str).str.strip()
 
 # 3. Numeric conversion and null handling
 numeric_cols = ['Crop_Year', 'Area', 'Annual_Rainfall', 'Fertilizer', 'Pesticide', 'Yield']

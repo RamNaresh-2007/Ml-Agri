@@ -48,6 +48,9 @@ preprocessor = ColumnTransformer(
 # Benchmark depths: 5, 10, 15, unconstrained None
 depths = [5, 10, 15, 20]
 results = []
+best_pipe = None
+best_r2 = -float("inf")
+best_depth = None
 
 for d in depths:
     dt_pipe = Pipeline([
@@ -61,13 +64,13 @@ for d in depths:
     mae = mean_absolute_error(y_test, pred)
     print(f"DecisionTree (max_depth={d:2d}) -> R2: {r2:.4f} | RMSE: {rmse:.2f} | MAE: {mae:.2f}")
     results.append({"Max_Depth": d, "R2_Score": r2, "RMSE": rmse, "MAE": mae})
+    if r2 > best_r2:
+        best_r2 = r2
+        best_pipe = dt_pipe
+        best_depth = d
 
-# Save best model (depth 15)
-best_pipe = Pipeline([
-    ('prep', preprocessor),
-    ('tree', DecisionTreeRegressor(max_depth=15, min_samples_split=10, random_state=42))
-])
-best_pipe.fit(X_train, y_train)
-joblib.dump(best_pipe, os.path.join(OUT_DIR, "decision_tree.joblib"))
+# Save optimal model and benchmark results
+print(f"\nBest Decision Tree: max_depth={best_depth} (R2={best_r2:.4f})")
+joblib.dump(best_pipe, os.path.join(OUT_DIR, "decision_tree.joblib"), compress=3)
 pd.DataFrame(results).to_csv(os.path.join(OUT_DIR, "decision_tree_depth_comparison.csv"), index=False)
 print(f"Decision Tree model and comparison saved to {OUT_DIR}")

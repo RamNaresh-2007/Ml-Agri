@@ -1,0 +1,69 @@
+=================================================================
+AGRICULTURAL ANOMALY DETECTION & OUTLIER REPORT
+=================================================================
+
+Evaluated Records: 5,000
+Target Contamination Rate: 2.5%
+Diagnostic Features: Area, Annual_Rainfall, Fertilizer, Pesticide, Yield, Fertilizer_per_Ha, Pesticide_per_Ha
+
+1. MULTI-ALGORITHM DETECTION SUMMARY:
+   - Isolation Forest        :   125 records (2.50%)
+   - Local Outlier Factor    :   125 records (2.50%)
+   - Elliptic Envelope       :   125 records (2.50%)
+   - One-Class SVM           :   125 records (2.50%)
+   - Ensemble (>= 2 Algos)   :   138 records (2.76%)
+
+2. ENSEMBLE CONSENSUS:
+   - High-Confidence (>= 3 algorithms): 62 records
+   - Moderate (2 algorithms)          : 76 records
+   - Total Confirmed Outliers         : 138 (2.76%)
+
+3. FEATURE DEVIATION COMPARISON (Anomalies vs Normal):
+   - Area                : Normal= 108969.60 | Anomalous=2331587.12 | Diff=+2039.7%
+   - Annual_Rainfall     : Normal=   1417.44 | Anomalous=   1489.27 | Diff=   +5.1%
+   - Fertilizer_per_Ha   : Normal=    137.24 | Anomalous=    131.50 | Diff=   -4.2%
+   - Pesticide_per_Ha    : Normal=      0.28 | Anomalous=      0.26 | Diff=   -7.2%
+   - Yield               : Normal=      4.27 | Anomalous=   2391.08 | Diff=+55893.3%
+
+4. SAMPLE OF DETECTED HIGH-SEVERITY ANOMALIES:
+   [1] Crop: Rice | State: Punjab | Year: 2008
+       Area: 2,735,000.0 ha | Rainfall: 691.3 mm | Yield: 3.99 t/ha
+       Fertilizer/Ha: 143.0 kg/ha | Algos Flagged: 3/4
+       Diagnosis: Multivariate Latent Discrepancy
+
+   [2] Crop: Rice | State: Jharkhand | Year: 2008
+       Area: 1,008,437.2 ha | Rainfall: 1295.2 mm | Yield: 1.39 t/ha
+       Fertilizer/Ha: 143.0 kg/ha | Algos Flagged: 2/4
+       Diagnosis: Multivariate Latent Discrepancy
+
+   [3] Crop: Jowar | State: Maharashtra | Year: 2004
+       Area: 3,223,200.0 ha | Rainfall: 1052.0 mm | Yield: 0.67 t/ha
+       Fertilizer/Ha: 108.3 kg/ha | Algos Flagged: 2/4
+       Diagnosis: Multivariate Latent Discrepancy
+
+   [4] Crop: Cotton(lint) | State: Maharashtra | Year: 2011
+       Area: 4,166,700.0 ha | Rainfall: 1174.1 mm | Yield: 1.74 t/ha
+       Fertilizer/Ha: 167.5 kg/ha | Algos Flagged: 3/4
+       Diagnosis: Multivariate Latent Discrepancy
+
+   [5] Crop: Tobacco | State: Meghalaya | Year: 2018
+       Area: 802.0 ha | Rainfall: 5649.1 mm | Yield: 1.05 t/ha
+       Fertilizer/Ha: 162.2 kg/ha | Algos Flagged: 2/4
+       Diagnosis: Extreme Flood / Waterlogging
+
+   [6] Crop: Soyabean | State: Madhya Pradesh | Year: 2004
+       Area: 4,580,458.0 ha | Rainfall: 895.7 mm | Yield: 0.82 t/ha
+       Fertilizer/Ha: 108.3 kg/ha | Algos Flagged: 3/4
+       Diagnosis: Multivariate Latent Discrepancy
+
+   [7] Crop: Wheat | State: Madhya Pradesh | Year: 2003
+       Area: 4,078,974.0 ha | Rainfall: 1163.0 mm | Yield: 1.80 t/ha
+       Fertilizer/Ha: 99.0 kg/ha | Algos Flagged: 2/4
+       Diagnosis: Multivariate Latent Discrepancy
+
+   [8] Crop: Coconut  | State: Goa | Year: 2019
+       Area: 26,542.0 ha | Rainfall: 4489.5 mm | Yield: 6359.69 t/ha
+       Fertilizer/Ha: 171.8 kg/ha | Algos Flagged: 3/4
+       Diagnosis: Extreme Flood / Waterlogging & Suspicious Yield Outlier (Reporting Error)
+
+=================================================================

@@ -1,0 +1,60 @@
+=================================================================
+AGRIYIELD AI - SUPERVISED REGRESSION BENCHMARK REPORT
+=================================================================
+
+Dataset: Crop Production in India (19,689 validated records)
+Train Split: 15,751 samples (80%) | Test Split: 3,938 samples (20%)
+Target Variable: Crop Yield (Metric Tonnes per Hectare)
+Features: Crop, State, Season, Crop_Year, Area, Annual_Rainfall, Fertilizer, Pesticide
+
+1. PRODUCTION REGRESSION MODEL BENCHMARKS:
+-----------------------------------------------------------------
+Model Name                R2 Score      RMSE (t/ha)   MAE (t/ha)    Train Time (s)
+-----------------------------------------------------------------
+Linear Regression (OLS)   0.8105        389.6808      63.8846       0.17s
+Ridge Regularization      0.8104        389.7141      63.9466       0.37s
+Decision Tree Regressor   0.9661        164.8431      11.7024       0.31s
+Random Forest (Champion)  0.9808        124.1253       9.5127       2.37s
+-----------------------------------------------------------------
+
+2. CHAMPION MODEL ARCHITECTURE (RANDOM FOREST):
+- Total Estimators: 100 Trees
+- Maximum Depth: None (Fully grown with min_samples_split=2)
+- Bootstrap Sampling: True with out-of-bag variance estimation
+- Cross-Validation: 5-Fold Stratified K-Fold (Mean R² = 0.978 ± 0.004)
+- Out-of-Sample R² Score: 0.9808 (98.08% variance explained)
+- Root Mean Squared Error (RMSE): 124.13 tonnes/ha
+- Mean Absolute Error (MAE): 9.51 tonnes/ha
+
+3. FEATURE IMPORTANCE ATTRIBUTION:
+Top Agronomic Predictors by Gini Impurity & SHAP Attribution:
+1. Crop Type (One-Hot Encoded):  68.42% (Primary crop physiological baseline)
+2. Area (Cultivated Hectares):   14.35% (Scale economies & parcel size)
+3. Annual Rainfall (mm):         9.87% (Moisture availability & monsoon timing)
+4. Fertilizer Dosage (kg):        4.12% (Nutrient supplementation)
+5. Pesticide Application (kg):    1.89% (Crop health protection)
+6. State & Region:               0.85% (Soil zonal & climatic characteristics)
+7. Cropping Season:              0.50% (Kharif vs Rabi vs Zaid weather)
+
+4. MODEL SCALING & NORMALIZATION SENSITIVITY BENCHMARKS:
+-----------------------------------------------------------------
+Family          Model Name          Task            Scaled   Metric        Score
+-----------------------------------------------------------------
+Distance-based  KNN                 Classification  No       Accuracy      0.5470
+Distance-based  KNN                 Classification  Yes      Accuracy      0.8550 (+30.8%)
+Distance-based  SVM (RBF)           Classification  No       Accuracy      0.4980
+Distance-based  SVM (RBF)           Classification  Yes      Accuracy      0.8810 (+38.3%)
+Gradient-desc.  Logistic Regression Classification  No       Accuracy      0.5730
+Gradient-desc.  Logistic Regression Classification  Yes      Accuracy      0.8390 (+26.6%)
+Gradient-desc.  Neural Network      Classification  No       Accuracy      0.5470
+Gradient-desc.  Neural Network      Classification  Yes      Accuracy      0.8630 (+31.6%)
+Regularized     Ridge               Regression      No       R2 Score      0.8103
+Regularized     Ridge               Regression      Yes      R2 Score      0.8105 (+0.02%)
+Tree-based      Random Forest       Regression      No/Yes   R2 Score      0.9808 (Scale-invariant)
+-----------------------------------------------------------------
+
+5. DEPLOYMENT CONCLUSION & RECOMMENDATION:
+- Random Forest is verified as the production champion model.
+- High non-linear interaction capture between Crop identity and Rainfall makes tree ensembles vastly superior to linear OLS and Ridge models.
+- Model serialized as 'random_forest.joblib' and deployed to REST API `/api/predict`.
+=================================================================

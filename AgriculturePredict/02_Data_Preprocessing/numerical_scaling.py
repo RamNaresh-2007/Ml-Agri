@@ -38,12 +38,12 @@ X_test_minmax = minmax_scaler.transform(X_test)
 print(f"Numerical Features: {numeric_features}")
 print(f"X_train Shape: {X_train.shape} | X_test Shape: {X_test.shape}")
 print("\n--- StandardScaler (Zero Mean, Unit Variance) Summary ---")
-print("Train Means:", [round(m, 3) for m in X_train_std.mean(axis=0)])
-print("Train Stds:", [round(s, 3) for s in X_train_std.std(axis=0)])
+print("Train Means:", [round(float(m), 3) for m in X_train_std.mean(axis=0)])
+print("Train Stds:", [round(float(s), 3) for s in X_train_std.std(axis=0)])
 
 print("\n--- MinMaxScaler ([0, 1] Bounded) Summary ---")
-print("Train Mins:", [round(m, 3) for m in X_train_minmax.min(axis=0)])
-print("Train Maxs:", [round(m, 3) for m in X_train_minmax.max(axis=0)])
+print("Train Mins:", [round(float(m), 3) for m in X_train_minmax.min(axis=0)])
+print("Train Maxs:", [round(float(m), 3) for m in X_train_minmax.max(axis=0)])
 
 # Save outputs
 pd.DataFrame(X_train_std, columns=numeric_features).to_csv(os.path.join(OUTPUT_DIR, "X_train_num_standard.csv"), index=False)
